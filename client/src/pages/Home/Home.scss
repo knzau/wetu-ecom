@@ -1,0 +1,127 @@
+.home {
+  padding: 0 5rem;
+
+  .hero-container {
+    display: flex;
+    height: 490px;
+    gap: 25px;
+    width: 100%;
+
+    .col-lg {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      overflow: hidden;
+
+      .side-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .row {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+
+      &:not(:last-child) {
+        gap: 25px;
+      }
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      .slide-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+        transition: cubic-bezier(0, 1, 1, 0);
+      }
+
+      .slide {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+      }
+
+      .slide__img-container {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: #f8f8f8;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #121212;
+        cursor: pointer;
+        svg {
+          height: 14px;
+        }
+      }
+      .left {
+        left: 40px;
+        z-index: 51;
+      }
+      .right {
+        right: 40px;
+        z-index: 50;
+      }
+
+      .hero-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        outline: none;
+        background-color: #fff;
+        border: none;
+        padding: 13px 24px;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #121212;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &_text {
+          color: #aeaeae;
+          display: block;
+          font-size: 12px;
+          padding-bottom: 14px;
+        }
+
+        &__main-text {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  .products_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 30px;
+  }
+}

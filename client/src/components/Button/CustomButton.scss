@@ -1,0 +1,30 @@
+.primary-btn {
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: #121212;
+
+  &:hover {
+    background-color: #cccccc;
+    color: #121212;
+    border: 1px solid #121212;
+  }
+}
+
+.secondary-btn {
+  outline: none;
+  border: 1px solid #cccccc;
+  color: #cccccc;
+  background-color: #121212;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+
+  &:hover {
+    background-color: #cccccc;
+    color: #121212;
+    border: 1px solid #121212;
+  }
+}
