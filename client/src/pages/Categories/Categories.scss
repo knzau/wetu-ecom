@@ -1,0 +1,33 @@
+.category-page__container {
+  .category-nav {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    background-color: #f8f8f8;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .inactive {
+    color: #121212;
+    opacity: 0.6;
+  }
+
+  .active {
+    color: #121212;
+  }
+
+  .category-page__banner {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    background-color: #f8f8f8;
+    height: 70px;
+    display: flex;
+
+    justify-content: center;
+  }
+}

@@ -3,11 +3,12 @@ import { productCategoriesData } from '../../mockData';
 import Tabs from '../../components/TabsComponent/Tabs';
 import TabPane from '../../components/TabsComponent/TabPane';
 import Product from '../../components/Product/Product';
+import CustomButton from '../../components/Button/CustomButton';
 
-const HomeCategories = () => {
+const HomeCategories = ({ defaultTab, categoryTitle }) => {
   return (
-    <>
-      <Tabs defaultTab={0} categoryTitle="Women's">
+    <div className="home-categories__wrapper">
+      <Tabs defaultTab={defaultTab} categoryTitle={categoryTitle}>
         {productCategoriesData.map((category) => (
           <TabPane key={category.id} title={category.title}>
             <div className="products_container">
@@ -18,7 +19,8 @@ const HomeCategories = () => {
           </TabPane>
         ))}
       </Tabs>
-    </>
+      <CustomButton className="categories-btn">see all</CustomButton>
+    </div>
   );
 };
 
