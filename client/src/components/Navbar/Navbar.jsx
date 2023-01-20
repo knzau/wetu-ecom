@@ -8,9 +8,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import MistoLogo from '../../assets/icons/MistoLogo';
-
-import './Navbar.scss';
 import { SocialMediaIcons } from '../utils';
+import './Navbar.scss';
 
 const Navbar = () => {
   return (

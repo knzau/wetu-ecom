@@ -336,3 +336,11 @@ export const productCategoriesData = [
     ]
   }
 ];
+
+export const filters = {
+  color: ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'],
+
+  size: ['xl', 'l', 'm', 's', 'xs'],
+
+  brand: ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike']
+};
