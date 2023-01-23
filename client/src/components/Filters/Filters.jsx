@@ -28,7 +28,7 @@ const Filters = () => {
           <GridViewIcon />
         </div>
         <div className="filters-top__items">
-          <span>Best Sellers</span>
+          <span>Sort by</span>
           <KeyboardArrowDownIcon />
         </div>
       </div>

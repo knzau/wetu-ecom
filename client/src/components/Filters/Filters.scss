@@ -16,6 +16,11 @@
     svg {
       width: 20px;
       height: 20px;
+      cursor: pointer;
+
+      &:hover {
+        color: #ccc;
+      }
     }
 
     span {

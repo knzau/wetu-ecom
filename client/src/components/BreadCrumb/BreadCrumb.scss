@@ -1,0 +1,20 @@
+.bread-crumb {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .right {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+  .left {
+    display: flex;
+    column-gap: 5px;
+  }
+}

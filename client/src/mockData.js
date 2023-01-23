@@ -32,27 +32,111 @@ export const productCategoriesData = [
         imgUrl:
           'https://images.pexels.com/photos/9286361/pexels-photo-9286361.jpeg?auto=compress&cs=tinysrgb&w=1600',
         label: "women's tracksuit",
-        price: 38.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        price: '379.99',
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 2,
         imgUrl:
           'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
         label: 'Cluse La Boheme Rose Gold',
-        price: 30.0,
         oldPrice: 60.0,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        price: '379.99',
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 3,
         imgUrl:
           'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
         label: 'Mercury Tee',
-        price: 54.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        price: '54.99',
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 4,
@@ -108,20 +192,76 @@ export const productCategoriesData = [
       {
         id: 1,
         imgUrl:
-          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9286361/pexels-photo-9286361.jpeg?auto=compress&cs=tinysrgb&w=1600',
         label: "women's tracksuit",
         price: 38.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 2,
         imgUrl:
           'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
         label: 'Cluse La Boheme Rose Gold',
-        price: 30.0,
         oldPrice: 60.0,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        price: '379.99',
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 3,
@@ -130,7 +270,35 @@ export const productCategoriesData = [
         label: 'Mercury Tee',
         price: 54.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 4,
@@ -190,7 +358,35 @@ export const productCategoriesData = [
         label: "women's tracksuit",
         price: 38.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 2,
@@ -199,7 +395,35 @@ export const productCategoriesData = [
         label: 'Cluse La Boheme Rose Gold',
         price: 30.0,
         oldPrice: 60.0,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 3,
@@ -208,7 +432,35 @@ export const productCategoriesData = [
         label: 'Mercury Tee',
         price: 54.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 4,
@@ -268,7 +520,35 @@ export const productCategoriesData = [
         label: "women's tracksuit",
         price: 38.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 2,
@@ -277,7 +557,35 @@ export const productCategoriesData = [
         label: 'Cluse La Boheme Rose Gold',
         price: 30.0,
         oldPrice: 60.0,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 3,
@@ -286,7 +594,35 @@ export const productCategoriesData = [
         label: 'Mercury Tee',
         price: 54.0,
         oldPrice: null,
-        rating: 4
+        rating: 4,
+        images: [
+          'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+          'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+        ],
+        title: 'women"s tracksuit q109',
+        color: ['blue', 'white', 'black', 'gray'],
+        size: ['xs', 's', 'm', 'l'],
+        availability: 'in stock',
+        sku: '777',
+        reviews: [
+          {
+            id: 1,
+            reviewer: 'Ken Nzau',
+            review: 'Very nice product, i love it!',
+            date: '30/11/2022',
+            stars: 5
+          },
+          {
+            id: 2,
+            reviewer: 'Mike mzae',
+            review: 'Very nice product, i love it!',
+            date: '10/01/2023',
+            stars: 4
+          }
+        ],
+        material: '100% polyster'
       },
       {
         id: 4,
@@ -344,3 +680,134 @@ export const filters = {
 
   brand: ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike']
 };
+
+export const productsData = [
+  {
+    id: 1,
+    images: [
+      'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    ],
+    title: 'women"s tracksuit q109',
+    color: ['blue', 'white', 'black', 'gray'],
+    size: ['xs', 's', 'm', 'l'],
+    price: '379.99',
+    availability: 'in stock',
+    sku: '777',
+    reviews: [
+      {
+        id: 1,
+        reviewer: 'Ken Nzau',
+        review: 'Very nice product, i love it!',
+        date: '30/11/2022',
+        stars: 5
+      },
+      {
+        id: 2,
+        reviewer: 'Mike mzae',
+        review: 'Very nice product, i love it!',
+        date: '10/01/2023',
+        stars: 4
+      }
+    ],
+    material: '100% polyster'
+  },
+  {
+    id: 2,
+    images: [
+      'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    ],
+    title: 'women"s tracksuit q109',
+    color: ['blue', 'white', 'black', 'gray'],
+    size: ['xs', 's', 'm', 'l'],
+    price: '379.99',
+    availability: 'in stock',
+    sku: '777',
+    reviews: [
+      {
+        id: 1,
+        reviewer: 'Ken Nzau',
+        review: 'Very nice product, i love it!',
+        date: '30/11/2022',
+        stars: 5
+      },
+      {
+        id: 2,
+        reviewer: 'Mike mzae',
+        review: 'Very nice product, i love it!',
+        date: '10/01/2023',
+        stars: 4
+      }
+    ],
+    material: '100% polyster'
+  },
+  {
+    id: 3,
+    images: [
+      'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    ],
+    title: 'women"s tracksuit q109',
+    color: ['blue', 'white', 'black', 'gray'],
+    size: ['xs', 's', 'm', 'l'],
+    price: '379.99',
+    availability: 'in stock',
+    sku: '777',
+    reviews: [
+      {
+        id: 1,
+        reviewer: 'Ken Nzau',
+        review: 'Very nice product, i love it!',
+        date: '30/11/2022',
+        stars: 5
+      },
+      {
+        id: 2,
+        reviewer: 'Mike mzae',
+        review: 'Very nice product, i love it!',
+        date: '10/01/2023',
+        stars: 4
+      }
+    ],
+    material: '100% polyster'
+  },
+  {
+    id: 3,
+    images: [
+      'https://images.pexels.com/photos/6311637/pexels-photo-6311637.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/9558588/pexels-photo-9558588.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    ],
+    title: 'women"s tracksuit q109',
+    color: ['blue', 'white', 'black', 'gray'],
+    size: ['xs', 's', 'm', 'l'],
+    price: '379.99',
+    availability: 'in stock',
+    sku: '777',
+    reviews: [
+      {
+        id: 1,
+        reviewer: 'Ken Nzau',
+        review: 'Very nice product, i love it!',
+        date: '30/11/2022',
+        stars: 5
+      },
+      {
+        id: 2,
+        reviewer: 'Mike mzae',
+        review: 'Very nice product, i love it!',
+        date: '10/01/2023',
+        stars: 4
+      }
+    ],
+    material: '100% polyster'
+  }
+];
