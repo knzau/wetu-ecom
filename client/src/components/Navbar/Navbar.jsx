@@ -44,17 +44,17 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/products/1">
+            <Link className="link" to="/categories/women">
               Women
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/products/1">
+            <Link className="link" to="/categories/men">
               Men
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/products/1">
+            <Link className="link" to="/categories/accessories">
               Accessories
             </Link>
           </div>

@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 11px;
 
   .right {
     display: flex;
@@ -16,5 +17,20 @@
   .left {
     display: flex;
     column-gap: 5px;
+    align-items: center;
   }
+}
+
+.active {
+  color: #121212;
+}
+
+.inactive {
+  color: #121212;
+  opacity: 0.6;
+}
+
+.bread-crumb__page-title {
+  display: flex;
+  align-items: center;
 }

@@ -1,23 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ShareIcon from '@mui/icons-material/Share';
 import './BreadCrumb.scss';
 
-const BreadCrumb = ({ pageTitle, categoryTitle }) => {
+const BreadCrumb = ({ pageTitle = '', categoryTitle = '' }) => {
+  const location = useLocation();
+  console.log({ location });
   return (
     <div className="bread-crumb">
       <div className="right">
-        <Link className="link inactive" to="/">
+        <NavLink className={({ isActive }) => (isActive ? 'link active' : 'link inactive')} to="/">
           Home
-        </Link>
+        </NavLink>
         <ArrowRightIcon />
-        {categoryTitle && <Link className="link active">{categoryTitle}</Link>}
+        {categoryTitle && (
+          <NavLink
+            className={({ isActive }) => (isActive ? 'link active' : 'link inactive')}
+            to={`/categories/${categoryTitle}`}>
+            {categoryTitle}
+          </NavLink>
+        )}
         {pageTitle && (
-          <>
+          <div className="bread-crumb__page-title">
             <ArrowRightIcon />
-            <span>{pageTitle}</span>
-          </>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'link active' : 'link inactive')}
+              reloadDocument>
+              {pageTitle}
+            </NavLink>
+          </div>
         )}
       </div>
       <div className="left">

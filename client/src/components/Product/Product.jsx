@@ -5,8 +5,9 @@ import './Product.scss';
 
 const Product = ({ product, categoryTitle }) => {
   const navigate = useNavigate();
+
   const navigateToProductPage = (productId) => {
-    navigate(`/product/${productId}`, {
+    navigate(`/categories/${categoryTitle}/product/${productId}`, {
       state: { product: product, categoryTitle: categoryTitle }
     });
   };

@@ -2,23 +2,26 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Filters from '../../components/Filters/Filters';
 import ProductList from '../../components/ProductList/ProductList';
-import { productCategoriesData } from '../../mockData';
-import './Categories.scss';
+import { categoriesData } from '../../mockData';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
+import './Categories.scss';
 
 const Categories = () => {
   const categoryId = useParams();
-
-  const categoryMockData = productCategoriesData.find(
-    (category) => parseInt(category.id) === parseInt(categoryId.id)
+  const categoryMockData = categoriesData.find(
+    (category) => category.id.toString() === categoryId.id.toString()
   );
 
   return (
     <div className="category-page__container">
-      <BreadCrumb categoryTitle={categoryMockData?.title} />
-      <div className="category-page__banner">{categoryMockData?.title}</div>
-      <Filters />
-      <ProductList productsData={categoryMockData} />
+      <div className="page-banner">
+        <BreadCrumb categoryTitle={categoryMockData?.title} />
+        <span className="page-banner__title">{categoryMockData?.title}</span>
+      </div>
+      <div className="page__content">
+        <Filters />
+        <ProductList productsData={categoryMockData} />
+      </div>
     </div>
   );
 };
