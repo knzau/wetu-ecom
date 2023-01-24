@@ -1,12 +1,10 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ShareIcon from '@mui/icons-material/Share';
 import './BreadCrumb.scss';
 
 const BreadCrumb = ({ pageTitle = '', categoryTitle = '' }) => {
-  const location = useLocation();
-  console.log({ location });
   return (
     <div className="bread-crumb">
       <div className="right">
