@@ -1,3 +1,7 @@
+import EuroSymbolIcon from '@mui/icons-material/EuroSymbol';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import CurrencyPoundIcon from '@mui/icons-material/CurrencyPound';
+
 export const HeroBannerContent = [
   {
     id: 0,
@@ -1300,3 +1304,18 @@ export const productsData = [
     material: '100% polyster'
   }
 ];
+
+export const DEFAULT_CURRENCY = 'dollar';
+
+export const CURRENCIES = ['usd', 'euro', 'pound'];
+
+export const getSelectCurrencyOptions = (CURRENCIES) =>
+  CURRENCIES.map((currency) => {
+    return { label: currency, value: currency };
+  });
+
+export const currenciesIcons = {
+  dollar: <AttachMoneyIcon />,
+  euro: <EuroSymbolIcon />,
+  pound: <CurrencyPoundIcon />
+};

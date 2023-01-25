@@ -1,17 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
-import './ProductPage.scss';
 import StarRating from '../../components/StarRating/StarRating';
+// import { currenciesIcons } from '../../mockData';
+import './ProductPage.scss';
+import CurrencyContext from '../../hooks/CurrencyContext';
 
 const ProductPage = () => {
   const location = useLocation();
+  const currentCurrency = useContext(CurrencyContext);
+  console.log({ currentCurrency });
   const [imageIndex, setImageIndex] = useState(0);
   const { product, categoryTitle } = location.state || {};
   // const { images, material, price, reviews, title, sku, color, availability, size } = product?.data;
-  const { images, title, id, label, price, reviews, sku, availability } = product || null;
+  const { images, title, id, label, price, reviews, sku, availability, color, size } =
+    product || null;
   const getSelectedImageClass = (index, imageIndex) => {
     return parseInt(imageIndex) === parseInt(index) ? ' selected-product' : 'unselected-product';
   };
@@ -81,17 +86,19 @@ const ProductPage = () => {
         </div>
         <div className="product__details">
           <div className="product__colors">
-            <span>color</span>
+            <span>color: {color[0]}</span>
           </div>
           <div className="product__sizes">
-            <span>size</span>
+            <span>size: {size}</span>
             <span>size guide</span>
           </div>
 
           <div className="product__price">
             <hr />
             <div>
-              <h2> {price}</h2>
+              <h2>
+                <span>{}</span> {price}
+              </h2>
               <button>Add to card</button>
               <span>favourite </span>
             </div>
