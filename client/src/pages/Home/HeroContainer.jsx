@@ -7,9 +7,8 @@ import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined
 import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 import PlaylistAddCheckCircleOutlinedIcon from '@mui/icons-material/PlaylistAddCheckCircleOutlined';
 import { HeroSlides } from './HeroSlides';
-
-import './Home.scss';
 import CustomButton from '../../components/Button/CustomButton';
+import './Home.scss';
 
 const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
   const bannerSizeRef = useRef();

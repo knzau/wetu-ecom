@@ -1,5 +1,4 @@
 import React from 'react';
-import { filters } from '../../mockData';
 import FilterItem from './FilterItem';
 import CloseIcon from '@mui/icons-material/Close';
 import GridViewIcon from '@mui/icons-material/GridView';
@@ -8,6 +7,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 import useToggle from '../../hooks/useToggle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './Filters.scss';
+import { filters } from '../../utils';
 
 const Filters = () => {
   const { toggleValue, handleToggle } = useToggle();

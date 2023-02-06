@@ -5,9 +5,9 @@ import Product from './pages/Product/ProductPage';
 import Categories from './pages/Categories/Categories';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
-import { DEFAULT_CURRENCY } from './mockData';
-import './app.scss';
 import CurrencyContext from './hooks/CurrencyContext';
+import './app.scss';
+import { DEFAULT_CURRENCY } from './utils';
 
 const Layout = () => {
   return (

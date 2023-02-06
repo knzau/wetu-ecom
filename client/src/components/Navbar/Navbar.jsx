@@ -6,12 +6,12 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import CurrencyContext from '../../hooks/CurrencyContext';
+import SelectDropdown from '../SelectDropdown/SelectDropdown';
 import MistoLogo from '../../assets/icons/MistoLogo';
 import { SocialMediaIcons } from '../utils';
 import './Navbar.scss';
-import { CURRENCIES, getSelectCurrencyOptions } from '../../mockData';
-import CurrencyContext from '../../hooks/CurrencyContext';
-import SelectDropdown from '../SelectDropdown/SelectDropdown';
+import { CURRENCIES, getSelectCurrencyOptions } from '../../utils';
 
 const Navbar = () => {
   const { currentCurrency } = useContext(CurrencyContext);

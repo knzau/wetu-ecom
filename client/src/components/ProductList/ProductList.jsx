@@ -6,7 +6,11 @@ const ProductList = ({ productsData }) => {
   return (
     <div className="product-list__wrapper">
       {productsData.map((product) => (
-        <Product product={product} key={product.id} categoryTitle={productsData.title} />
+        <Product
+          product={product}
+          key={product.id}
+          categoryTitle={product?.attributes?.categories?.data[0]?.attributes?.title}
+        />
       ))}
     </div>
   );

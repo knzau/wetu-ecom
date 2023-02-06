@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useState, useCallback, useContext, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -6,10 +6,13 @@ import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
 // import StarRating from '../../components/StarRating/StarRating';
 import CurrencyContext from '../../hooks/CurrencyContext';
 import './ProductPage.scss';
+import { currenciesIcons } from '../../utils';
+import CustomButton from '../../components/Button/CustomButton';
 
 const ProductPage = () => {
   const currentCurrency = useContext(CurrencyContext);
   const [imageIndex, setImageIndex] = useState(0);
+  const [productSize, setProductSize] = useState('s');
   const location = useLocation();
   console.log({ currentCurrency });
 
@@ -17,9 +20,11 @@ const ProductPage = () => {
 
   const { categoryTitle, product } = location.state;
 
-  const { image, image2, price, title, color, size } = product.attributes || {};
+  const { image, image2, price, title, color, size, description, material, reviews } =
+    product.attributes || {};
 
   const images = [image, image2];
+  const productSizes = size.split(',');
 
   const getSelectedImageClass = (index, imageIndex) => {
     return parseInt(imageIndex) === parseInt(index) ? ' selected-product' : 'unselected-product';
@@ -39,17 +44,22 @@ const ProductPage = () => {
     }
   }, []);
 
+  const handleClickProductSize = (size = '') => {
+    setProductSize(size);
+  };
+
+  const currencyWithIcon = useMemo(
+    () => currenciesIcons[currentCurrency.currentCurrency],
+    [currentCurrency.currentCurrency]
+  );
+
   // const getRating = (reviews) =>
   //   reviews.reduce((acc, currentValue) => acc + currentValue.stars || 0, 0);
 
   return (
     <div className="product-page">
       <div className="page-banner">
-        <BreadCrumb
-          pageTitle={categoryTitle}
-          categoryTitle={categoryTitle}
-          productId={product.id}
-        />
+        <BreadCrumb pageTitle={title} categoryTitle={categoryTitle} productId={product.id} />
         <span className="page-banner__title">{title}</span>
         <div className="page-banner__bottom">
           {/* {reviews && <StarRating rating={getRating(reviews)} reviewsNum={reviews.length} />} */}
@@ -96,23 +106,70 @@ const ProductPage = () => {
           </div>
         </div>
         <div className="product__details">
-          <div className="product__colors">
-            <span>color: {color}</span>
+          <div className="product__details-item">
+            <p>
+              <span>color:</span>
+              {color}
+            </p>
+            <div className="product__details-item_img">
+              <img
+                src={`http://localhost:1337${image?.data?.attributes?.url}`}
+                alt="product-color"
+              />
+            </div>
           </div>
-          <div className="product__sizes">
-            <span>size: {size}</span>
-            <span>size guide</span>
+          <div className="product__details-size_label">
+            <p>
+              <span>size:</span>
+              {productSize}
+            </p>
+
+            <div className="product__details-item-size__wrapper">
+              {size &&
+                productSizes.map((sizeLabel) => (
+                  <span
+                    key={sizeLabel}
+                    className="product__details-item_size"
+                    onClick={() => handleClickProductSize(sizeLabel)}>
+                    {sizeLabel}
+                  </span>
+                ))}
+            </div>
           </div>
 
           <div className="product__price">
-            <hr />
-            <div>
+            <div className="product__price-item">
               <h2>
-                <span>{}</span> {price}
+                {currencyWithIcon} {price}
               </h2>
-              <button>Add to card</button>
-              <span>favourite </span>
+              <CustomButton className="primary-btn addToCartBtn">Add to cart</CustomButton>
             </div>
+          </div>
+
+          <div className="product__description">
+            <div className="product__details-item description-item">
+              <p>
+                <span>description:</span> {description}
+              </p>
+            </div>
+          </div>
+
+          <div className="product__details-item product__info">
+            <p className="product__info-title">additional information</p>
+            <p>
+              <span>color:</span> {color}
+            </p>
+            <p>
+              <span>size:</span> {productSizes.join(', ')}
+            </p>
+            <p>
+              <span>material:</span> {material}
+            </p>
+          </div>
+
+          <div className="product__details-item product__info">
+            <p className="product__info-title">reviews</p>
+            <span>{reviews}</span>
           </div>
         </div>
       </div>
