@@ -1,25 +1,33 @@
 import React from 'react';
-import { productCategoriesData } from '../../mockData';
 import Tabs from '../../components/TabsComponent/Tabs';
-import TabPane from '../../components/TabsComponent/TabPane';
-import Product from '../../components/Product/Product';
+// import TabPane from '../../components/TabsComponent/TabPane';
+// import Product from '../../components/Product/Product';
 import CustomButton from '../../components/Button/CustomButton';
+import ProductType from '../../components/ProductType/ProductType';
+import { productTypes } from './HomeUtils';
+import { useNavigate } from 'react-router-dom';
 
-const HomeCategories = ({ defaultTab, categoryTitle }) => {
+const HomeCategories = ({ defaultTab, categoryData, categoryId }) => {
+  const navigate = useNavigate();
+  const navigateToProductCategory = () => {
+    navigate(`/categories/${categoryId}`);
+  };
+
   return (
     <div className="home-categories__wrapper">
-      <Tabs defaultTab={defaultTab} categoryTitle={categoryTitle}>
-        {productCategoriesData.map((category) => (
-          <TabPane key={category.id} title={category.title}>
-            <div className="products_container">
-              {category.products.map((product) => (
-                <Product key={product.id} product={product} />
-              ))}
-            </div>
-          </TabPane>
+      <Tabs defaultTab={defaultTab} categoryTitle={categoryData?.title || ''}>
+        {productTypes.map((productType) => (
+          <ProductType
+            productType={productType}
+            key={productType.id}
+            categoryId={categoryId}
+            categoryTitle={categoryData?.title}
+          />
         ))}
       </Tabs>
-      <CustomButton className="categories-btn">see all</CustomButton>
+      <CustomButton className="categories-btn" onClick={() => navigateToProductCategory()}>
+        see all
+      </CustomButton>
     </div>
   );
 };

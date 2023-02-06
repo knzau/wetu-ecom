@@ -9,12 +9,12 @@ const Tabs = ({ children, defaultTab, categoryTitle }) => {
   return (
     <div className="category-tabs">
       <div className="category-titles_section">
-        <h3>{categoryTitle}</h3>
+        <h3 key={categoryTitle}>{categoryTitle}</h3>
         <ul>
           {children.map((tabItem, index) => (
             <TabTitle
-              key={tabItem.props.title}
-              title={tabItem.props.title}
+              key={tabItem.key}
+              title={tabItem.props.productType.label}
               index={index}
               isActive={index === activeTab}
               setActiveTab={setActiveTab}

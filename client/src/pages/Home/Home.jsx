@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import useFetch from '../../hooks/useFetch';
 import { HeroBannerContent } from '../../mockData';
 import HomeCategories from './HomeCategories';
 import HeroContainer from './HeroContainer';
 import DiscountSection from './DiscountSection';
 import SubscribeSection from './SubscribeSection';
+import { CATEGORIES_URL } from '../../utils';
 import './Home.scss';
 
 const Home = () => {
+  const { data, loading } = useFetch(`${CATEGORIES_URL}`);
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleSetSlide = (direction) => {
@@ -22,9 +25,18 @@ const Home = () => {
 
   return (
     <div className="home">
-      <HeroContainer handleSetSlide={handleSetSlide} slideIndex={slideIndex} />
-      <HomeCategories defaultTab={0} categoryTitle="Women's" />
-      <HomeCategories defaultTab={0} categoryTitle="Men's" />
+      <HeroContainer handleSetSlide={handleSetSlide} slideIndex={slideIndex} categoryData={data} />
+      {loading
+        ? 'loading'
+        : data?.map((category) => (
+            <HomeCategories
+              key={category?.attributes?.title}
+              defaultTab={0}
+              categoryData={category.attributes}
+              categoryId={category.id}
+            />
+          ))}
+
       <DiscountSection />
       <SubscribeSection />
     </div>

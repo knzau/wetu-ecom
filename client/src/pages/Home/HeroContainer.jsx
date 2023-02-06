@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+// import { BASE_URL } from '../../utils';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
@@ -10,12 +11,27 @@ import { HeroSlides } from './HeroSlides';
 import './Home.scss';
 import CustomButton from '../../components/Button/CustomButton';
 
-const HeroContainer = ({ handleSetSlide, slideIndex }) => {
+const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
   const bannerSizeRef = useRef();
   const bannerEl = document.getElementById('home-banner');
   if (bannerEl) {
     bannerSizeRef.current = bannerEl.offsetWidth;
   }
+
+  const CategoryHeroEl = () => {
+    return categoryData?.map((category) => (
+      <div className="col hero-banner" key={category.id}>
+        <Link className="link" to={`/categories/${category.id}`}>
+          <CustomButton className="hero-btn">{category.attributes.title}</CustomButton>
+        </Link>
+        <img
+          className="side-image"
+          src={`http://localhost:1337${category?.attributes.image?.data?.attributes?.url}`}
+          alt="misto-img1"
+        />
+      </div>
+    ));
+  };
 
   return (
     <>
@@ -35,26 +51,7 @@ const HeroContainer = ({ handleSetSlide, slideIndex }) => {
         </div>
         <div className="col-lg ">
           <div className="row">
-            <div className="col hero-banner">
-              <Link className="link" to="/products/1">
-                <CustomButton className="hero-btn">women</CustomButton>
-              </Link>
-              <img
-                className="side-image"
-                src="https://images.pexels.com/photos/11344675/pexels-photo-11344675.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt="misto-img1"
-              />
-            </div>
-            <div className="col hero-banner">
-              <Link className="link" to="/products/1">
-                <CustomButton className="hero-btn">men</CustomButton>
-              </Link>
-              <img
-                className="side-image"
-                src="https://images.pexels.com/photos/3178875/pexels-photo-3178875.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt="misto-img1"
-              />
-            </div>
+            <CategoryHeroEl />
           </div>
           <div className="row hero-banner">
             <Link className="link" to="/products/1">

@@ -11,14 +11,14 @@ const Product = ({ product, categoryTitle }) => {
       state: { product: product, categoryTitle: categoryTitle }
     });
   };
-
+  const imgUrl = product?.attributes?.image?.data?.attributes?.url || '';
   return (
     <div
       key={product.id}
       className="product__wrapper"
       onClick={() => navigateToProductPage(product.id)}>
       <div className="product__image-wrapper">
-        <img src={product.imgUrl} alt={product.label} />
+        <img src={`http://localhost:1337${imgUrl}`} alt={''} />
       </div>
 
       <span className="product__label">{product.label}</span>

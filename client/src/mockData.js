@@ -1319,3 +1319,33 @@ export const currenciesIcons = {
   euro: <EuroSymbolIcon />,
   pound: <CurrencyPoundIcon />
 };
+
+export const menImageTitles = [
+  'black-leather-jacket',
+  'black-leather-jacket2',
+  'black-leather-jacket3',
+  'checkered-shirt (2)',
+  'checkered-shirt (3)',
+  'checkered-shirt',
+  'denim-jacket',
+  'denim-jacket2',
+  'denim-long-sleeve-shirt (2)',
+  'denim-long-sleeve-shirt (3)',
+  'denim-long-sleeve-shirt',
+  'denim-shorts (2)',
+  'denim-shorts',
+  'gray-jacket',
+  'grey-chinese-colar-shirt (2)',
+  'grey-chinese-colar-shirt',
+  'leather-jacket-hood (2)',
+  'leather-jacket-hood',
+  'orange-pullneck-sweater (2)',
+  'orange-pullneck-sweater',
+  'stripped-sweater (2)',
+  'stripped-sweater (3)',
+  'stripped-sweater',
+  'white-tracksuit-with-hoodie (2)',
+  'white-tracksuit-with-hoodie',
+  'winter-jacket (2)',
+  'winter-jacket'
+];

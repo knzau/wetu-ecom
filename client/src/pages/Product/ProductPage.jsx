@@ -3,20 +3,24 @@ import { useLocation } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
-import StarRating from '../../components/StarRating/StarRating';
-// import { currenciesIcons } from '../../mockData';
-import './ProductPage.scss';
+// import StarRating from '../../components/StarRating/StarRating';
 import CurrencyContext from '../../hooks/CurrencyContext';
+import './ProductPage.scss';
 
 const ProductPage = () => {
-  const location = useLocation();
   const currentCurrency = useContext(CurrencyContext);
-  console.log({ currentCurrency });
   const [imageIndex, setImageIndex] = useState(0);
-  const { product, categoryTitle } = location.state || {};
-  // const { images, material, price, reviews, title, sku, color, availability, size } = product?.data;
-  const { images, title, id, label, price, reviews, sku, availability, color, size } =
-    product || null;
+  const location = useLocation();
+  console.log({ currentCurrency });
+
+  console.log({ location });
+
+  const { categoryTitle, product } = location.state;
+
+  const { image, image2, price, title, color, size } = product.attributes || {};
+
+  const images = [image, image2];
+
   const getSelectedImageClass = (index, imageIndex) => {
     return parseInt(imageIndex) === parseInt(index) ? ' selected-product' : 'unselected-product';
   };
@@ -35,17 +39,21 @@ const ProductPage = () => {
     }
   }, []);
 
-  const getRating = (reviews) =>
-    reviews.reduce((acc, currentValue) => acc + currentValue.stars || 0, 0);
+  // const getRating = (reviews) =>
+  //   reviews.reduce((acc, currentValue) => acc + currentValue.stars || 0, 0);
 
   return (
     <div className="product-page">
       <div className="page-banner">
-        <BreadCrumb pageTitle={title} categoryTitle={categoryTitle} productId={id} />
+        <BreadCrumb
+          pageTitle={categoryTitle}
+          categoryTitle={categoryTitle}
+          productId={product.id}
+        />
         <span className="page-banner__title">{title}</span>
         <div className="page-banner__bottom">
-          {reviews && <StarRating rating={getRating(reviews)} reviewsNum={reviews.length} />}
-          <div className="page-banner__availability">
+          {/* {reviews && <StarRating rating={getRating(reviews)} reviewsNum={reviews.length} />} */}
+          {/* <div className="page-banner__availability">
             {sku && (
               <p>
                 SKU: <span>{sku}</span>
@@ -56,7 +64,7 @@ const ProductPage = () => {
                 availability: <span>{availability}</span>
               </p>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -70,23 +78,26 @@ const ProductPage = () => {
             {images.map((image, index) => (
               <div
                 className="product__small-img"
-                key={id + label + index}
+                key={image.data.id}
                 onClick={() => setImageIndex(index)}>
                 <img
                   className={getSelectedImageClass(index, imageIndex)}
-                  src={image}
+                  src={`http://localhost:1337${image.data.attributes.url}`}
                   alt={`image - ${index}`}
                 />
               </div>
             ))}
           </div>
           <div className="product__main-img">
-            <img src={images[imageIndex]} alt={`image - ${imageIndex}`} />
+            <img
+              src={`http://localhost:1337${images[imageIndex].data.attributes.url}`}
+              alt={`image - ${imageIndex}`}
+            />
           </div>
         </div>
         <div className="product__details">
           <div className="product__colors">
-            <span>color: {color[0]}</span>
+            <span>color: {color}</span>
           </div>
           <div className="product__sizes">
             <span>size: {size}</span>
