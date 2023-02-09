@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 // import { BASE_URL } from '../../utils';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
-import PlaylistAddCheckCircleOutlinedIcon from '@mui/icons-material/PlaylistAddCheckCircleOutlined';
 import { HeroSlides } from './HeroSlides';
 import CustomButton from '../../components/Button/CustomButton';
 import './Home.scss';
+import Features from '../../components/Features/Features';
 
 const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
   const bannerSizeRef = useRef();
@@ -64,29 +62,7 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
           </div>
         </div>
       </div>
-      <div className="our-features">
-        <div className="feature-item">
-          <LocalShippingOutlinedIcon />
-          <span>
-            <h4>Free shipping</h4>
-            <p>On all UA order or order above $100</p>
-          </span>
-        </div>
-        <div className="feature-item">
-          <CachedOutlinedIcon />
-          <span>
-            <h4>30 DAYS RETURN</h4>
-            <p>Simply return it within 30 days for an exchange</p>
-          </span>
-        </div>
-        <div className="feature-item">
-          <PlaylistAddCheckCircleOutlinedIcon />
-          <span>
-            <h4>SUPPORT 24/7</h4>
-            <p>Contact us 24 hours a day, 7 days a week</p>
-          </span>
-        </div>
-      </div>
+      <Features isHomeFeatures={true} />
     </>
   );
 };

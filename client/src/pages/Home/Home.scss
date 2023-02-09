@@ -102,32 +102,6 @@
     row-gap: 48px;
     padding-bottom: 48px;
   }
-  .our-features {
-    display: flex;
-    justify-content: space-between;
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      column-gap: 13px;
-      font-size: 12px;
-      h4 {
-        text-transform: uppercase;
-        margin-bottom: 4px;
-        letter-spacing: 1.2px;
-      }
-
-      p {
-        font-size: 12px;
-      }
-
-      svg {
-        width: 30px;
-        height: auto;
-        fill: #121212;
-      }
-    }
-  }
 
   .discount-section {
     display: flex;

@@ -1,11 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Tabs from '../../components/TabsComponent/Tabs';
-// import TabPane from '../../components/TabsComponent/TabPane';
-// import Product from '../../components/Product/Product';
 import CustomButton from '../../components/Button/CustomButton';
 import ProductType from '../../components/ProductType/ProductType';
 import { productTypes } from './HomeUtils';
-import { useNavigate } from 'react-router-dom';
 
 const HomeCategories = ({ defaultTab, categoryData, categoryId }) => {
   const navigate = useNavigate();
@@ -25,7 +23,7 @@ const HomeCategories = ({ defaultTab, categoryData, categoryId }) => {
           />
         ))}
       </Tabs>
-      <CustomButton className="categories-btn" onClick={() => navigateToProductCategory()}>
+      <CustomButton className="categories-btn" onClick={navigateToProductCategory}>
         see all
       </CustomButton>
     </div>
