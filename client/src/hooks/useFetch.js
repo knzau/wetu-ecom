@@ -17,8 +17,10 @@ const useFetch = (url, deps = []) => {
         setLoading(true);
         const res = await get(url, cancelToken);
 
-        if (res?.data?.data?.length) {
+        if (res?.data) {
           setData(res.data.data);
+        } else {
+          setData([]);
         }
       } catch (error) {
         console.error(error);
