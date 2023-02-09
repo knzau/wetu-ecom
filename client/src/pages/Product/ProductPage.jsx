@@ -8,6 +8,8 @@ import CurrencyContext from '../../hooks/CurrencyContext';
 import './ProductPage.scss';
 import { currenciesIcons } from '../../utils';
 import CustomButton from '../../components/Button/CustomButton';
+import PaymentMethods from '../../components/PaymentMethods/PaymentMethods';
+import Features from '../../components/Features/Features';
 
 const ProductPage = () => {
   const currentCurrency = useContext(CurrencyContext);
@@ -106,7 +108,7 @@ const ProductPage = () => {
           </div>
         </div>
         <div className="product__details">
-          <div className="product__details-item">
+          <div className="product__details-item product_color">
             <p>
               <span>color:</span>
               {color}
@@ -136,7 +138,6 @@ const ProductPage = () => {
                 ))}
             </div>
           </div>
-
           <div className="product__price">
             <div className="product__price-item">
               <h2>
@@ -145,7 +146,13 @@ const ProductPage = () => {
               <CustomButton className="primary-btn addToCartBtn">Add to cart</CustomButton>
             </div>
           </div>
-
+          <div className="product__features">
+            <Features />
+          </div>
+          <div className="product__payment-methods">
+            <span>guaranteed safe checkout</span>
+            <PaymentMethods />
+          </div>
           <div className="product__description">
             <div className="product__details-item description-item">
               <p>
@@ -153,7 +160,6 @@ const ProductPage = () => {
               </p>
             </div>
           </div>
-
           <div className="product__details-item product__info">
             <p className="product__info-title">additional information</p>
             <p>
@@ -166,9 +172,8 @@ const ProductPage = () => {
               <span>material:</span> {material}
             </p>
           </div>
-
-          <div className="product__details-item product__info">
-            <p className="product__info-title">reviews</p>
+          <div className="product__details-item product__reviews">
+            <p className="product__info-title">reviews:</p>
             <span>{reviews}</span>
           </div>
         </div>
