@@ -1,3 +1,7 @@
 {
-	"eslint.workingDirectories": ["./api", "./client"]
+	"eslint.workingDirectories": ["./api", "./client"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

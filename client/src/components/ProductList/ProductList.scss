@@ -1,6 +1,6 @@
 .product-list__wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(255px, 315px));
   gap: 30px;
   margin-top: 32px;
 }
