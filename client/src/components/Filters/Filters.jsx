@@ -6,25 +6,24 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import TuneIcon from '@mui/icons-material/Tune';
 import useToggle from '../../hooks/useToggle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import './Filters.scss';
-import { filters } from '../../utils';
+import { brandFilters, colorFilters, sizeFilters } from '../../utils';
 import RadioGroup from '../../components/RadioGroup/RadioGroup';
+import { filterPriceOptions, getColorFilterStyles } from './filterUtils';
+import './Filters.scss';
 
-const Filters = ({ handlePriceRangeSelect }) => {
+const Filters = ({
+  handlePriceRangeSelect,
+  handleClickFilters,
+  checkedSizeFilter,
+  checkedBrandFilter
+}) => {
   const { toggleValue, handleToggle } = useToggle();
 
   const filterBoxClass = toggleValue
     ? 'show-filter-box filters__box'
     : 'hide-filter-box filters__box';
-
-  const filterPriceOptions = [
-    { id: 1, name: 'price', value: '7-50', label: '7 - 50', showLabel: true },
-    { id: 2, name: 'price', value: '50-150', label: '50 - 150', showLabel: true },
-    { id: 3, name: 'price', value: '150-300', label: '150 - 300', showLabel: true },
-    { id: 4, name: 'price', value: '300-600', label: '300 - 600', showLabel: true },
-    { id: 5, name: 'price', value: '600-1200', label: '600 - 1200', showLabel: true },
-    { id: 6, name: 'price', value: '1200+', label: '1200+', showLabel: true }
-  ];
+  const filterItemClass = (filterId) =>
+    filterId === 'size' ? 'filter-item__size filter-item__text' : 'filter-item__text';
 
   return (
     <div className="filters__wrapper">
@@ -44,9 +43,47 @@ const Filters = ({ handlePriceRangeSelect }) => {
       </div>
 
       <div className={filterBoxClass}>
-        {Object.keys(filters).map((item) => (
-          <FilterItem key={item} filterId={item} filterDetails={filters[item]} />
-        ))}
+        <div className="filter-item">
+          <h2>color</h2>
+          {colorFilters.map((item) => (
+            <div
+              key={item}
+              className={filterItemClass(item)}
+              onClick={handleClickFilters}
+              id="color">
+              <span style={getColorFilterStyles(item)} />
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="filter-item">
+          <h2>size</h2>
+          {sizeFilters.map((filter, index) => (
+            <FilterItem
+              key={filter}
+              filterId="size"
+              filter={filter}
+              handleClickFilters={handleClickFilters}
+              checkedFilter={checkedSizeFilter}
+              filterItemClass={filterItemClass}
+              index={index}
+            />
+          ))}
+        </div>
+        <div className="filter-item">
+          {brandFilters.map((item, index) => (
+            <FilterItem
+              key={item}
+              filterId={item}
+              filter={item}
+              handleClickFilters={handleClickFilters}
+              checkedFilter={checkedBrandFilter}
+              filterItemClass={filterItemClass}
+              index={index}
+            />
+          ))}
+        </div>
         <div className="filter-item">
           <h2>price</h2>
           <RadioGroup

@@ -19,10 +19,8 @@ export const getSelectCurrencyOptions = (CURRENCIES) =>
     return { label: currency, value: currency };
   });
 
-export const filters = {
-  color: ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'],
+export const colorFilters = ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'];
 
-  size: ['xl', 'l', 'm', 's', 'xs'],
+export const sizeFilters = ['xl', 'l', 'm', 's', 'xs'];
 
-  brand: ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike']
-};
+export const brandFilters = ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike'];
