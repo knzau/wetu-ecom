@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FilterItem from './FilterItem';
 import CloseIcon from '@mui/icons-material/Close';
 import GridViewIcon from '@mui/icons-material/GridView';
@@ -18,10 +18,16 @@ const Filters = ({
   checkedBrandFilter
 }) => {
   const { toggleValue, handleToggle } = useToggle();
+  const [toggleIndex, setToggleIndex] = useState('');
 
-  const filterBoxClass = toggleValue
-    ? 'show-filter-box filters__box'
-    : 'hide-filter-box filters__box';
+  const filterBoxClass =
+    toggleValue && toggleIndex === 'filterBox'
+      ? 'show-filter-box filters__box'
+      : 'hide-filter-box filters__box';
+
+  const selectedColorFilterClass =
+    toggleValue && toggleIndex === 'color' ? 'selected-color-filter' : '';
+
   const filterItemClass = (filterId) =>
     filterId === 'size' ? 'filter-item__size filter-item__text' : 'filter-item__text';
 
@@ -29,7 +35,21 @@ const Filters = ({
     <div className="filters__wrapper">
       <div className="filters-top">
         <div className="filters-top__items">
-          {toggleValue ? <CloseIcon onClick={handleToggle} /> : <TuneIcon onClick={handleToggle} />}
+          {toggleValue ? (
+            <CloseIcon
+              onClick={() => {
+                handleToggle();
+                setToggleIndex('filterBox');
+              }}
+            />
+          ) : (
+            <TuneIcon
+              onClick={() => {
+                handleToggle();
+                setToggleIndex('filterBox');
+              }}
+            />
+          )}
           <span> Filter</span>
         </div>
         <div className="filters-top__items">
@@ -45,13 +65,16 @@ const Filters = ({
       <div className={filterBoxClass}>
         <div className="filter-item">
           <h2>color</h2>
-          {colorFilters.map((item) => (
+          {colorFilters.map((item, index) => (
             <div
               key={item}
               className={filterItemClass(item)}
-              onClick={handleClickFilters}
-              id="color">
-              <span style={getColorFilterStyles(item)} />
+              onClick={() => {
+                handleClickFilters(item, 'color', index);
+                handleToggle();
+                setToggleIndex('color');
+              }}>
+              <span style={getColorFilterStyles(item)} className={selectedColorFilterClass} />
               <p>{item}</p>
             </div>
           ))}
@@ -72,6 +95,7 @@ const Filters = ({
           ))}
         </div>
         <div className="filter-item">
+          <h2>size</h2>
           {brandFilters.map((item, index) => (
             <FilterItem
               key={item}

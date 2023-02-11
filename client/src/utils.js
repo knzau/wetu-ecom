@@ -24,3 +24,15 @@ export const colorFilters = ['black', 'cyan', 'green', 'grey', 'pink', 'white', 
 export const sizeFilters = ['xl', 'l', 'm', 's', 'xs'];
 
 export const brandFilters = ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike'];
+
+export const getFilterString = (updatedCheckedState, filters) => {
+  const selectedFilters = updatedCheckedState
+    .map((item, index) => {
+      if (item === true) {
+        return filters[index];
+      }
+    })
+    .filter(Boolean);
+
+  return selectedFilters.length ? selectedFilters.join(',') : '';
+};

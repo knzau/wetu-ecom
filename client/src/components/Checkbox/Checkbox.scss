@@ -1,0 +1,11 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  column-gap: 8px;
+
+  input {
+    cursor: pointer;
+  }
+}
