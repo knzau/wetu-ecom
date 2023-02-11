@@ -20,7 +20,7 @@
     opacity: 0.6;
     text-transform: capitalize;
     line-height: 16px;
-    padding: 12px 0;
+    padding: 16px 0 12px;
   }
 
   .product__price-wrapper {
@@ -33,14 +33,8 @@
     font-size: 14px;
     color: #121212;
     text-transform: capitalize;
-
     font-weight: 700;
     display: flex;
     align-items: center;
-
-    svg {
-      font-size: 18px;
-      margin-right: -2px;
-    }
   }
 }

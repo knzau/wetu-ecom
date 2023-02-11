@@ -2,7 +2,7 @@ import React from 'react';
 import Product from '../Product/Product';
 import './ProductList.scss';
 
-const ProductList = ({ productsData, categoryTitle = '' }) => {
+const ProductList = ({ productsData, categoryId = '', categoryTitle = '' }) => {
   return (
     <div className="product-list__wrapper">
       {productsData
@@ -10,6 +10,7 @@ const ProductList = ({ productsData, categoryTitle = '' }) => {
             <Product
               product={product}
               key={product.id}
+              categoryId={categoryId ? categoryId : product?.attributes?.categories?.data[0]?.id}
               categoryTitle={
                 categoryTitle
                   ? categoryTitle

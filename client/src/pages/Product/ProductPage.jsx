@@ -1,27 +1,20 @@
-import React, { useState, useCallback, useContext, useMemo } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
-// import StarRating from '../../components/StarRating/StarRating';
-import CurrencyContext from '../../hooks/CurrencyContext';
-import './ProductPage.scss';
-import { currenciesIcons } from '../../utils';
 import CustomButton from '../../components/Button/CustomButton';
 import PaymentMethods from '../../components/PaymentMethods/PaymentMethods';
 import Features from '../../components/Features/Features';
+import './ProductPage.scss';
 
 const ProductPage = () => {
-  const currentCurrency = useContext(CurrencyContext);
   const [imageIndex, setImageIndex] = useState(0);
   const [productSize, setProductSize] = useState('s');
   const location = useLocation();
-  console.log({ currentCurrency });
 
-  console.log({ location });
-
-  const { categoryTitle, product } = location.state;
-
+  const { product, categoryId, categoryTitle } = location.state;
+  console.log(location.state);
   const { image, image2, price, title, color, size, description, material, reviews } =
     product.attributes || {};
 
@@ -50,34 +43,17 @@ const ProductPage = () => {
     setProductSize(size);
   };
 
-  const currencyWithIcon = useMemo(
-    () => currenciesIcons[currentCurrency.currentCurrency],
-    [currentCurrency.currentCurrency]
-  );
-
-  // const getRating = (reviews) =>
-  //   reviews.reduce((acc, currentValue) => acc + currentValue.stars || 0, 0);
-
   return (
     <div className="product-page">
       <div className="page-banner">
-        <BreadCrumb pageTitle={title} categoryTitle={categoryTitle} productId={product.id} />
+        <BreadCrumb
+          pageTitle={title}
+          categoryId={categoryId}
+          categoryTitle={categoryTitle}
+          productId={product.id}
+        />
         <span className="page-banner__title">{title}</span>
-        <div className="page-banner__bottom">
-          {/* {reviews && <StarRating rating={getRating(reviews)} reviewsNum={reviews.length} />} */}
-          {/* <div className="page-banner__availability">
-            {sku && (
-              <p>
-                SKU: <span>{sku}</span>
-              </p>
-            )}
-            {availability && (
-              <p>
-                availability: <span>{availability}</span>
-              </p>
-            )}
-          </div> */}
-        </div>
+        <div className="page-banner__bottom"></div>
       </div>
 
       <div className="product-page__product">
@@ -138,11 +114,9 @@ const ProductPage = () => {
                 ))}
             </div>
           </div>
-          <div className="product__price">
-            <div className="product__price-item">
-              <h2>
-                {currencyWithIcon} {price}
-              </h2>
+          <div className="product-page__price">
+            <div className="product-page__price-item">
+              <h2>$ {price}</h2>
               <CustomButton className="primary-btn addToCartBtn">Add to cart</CustomButton>
             </div>
           </div>

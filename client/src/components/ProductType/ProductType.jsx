@@ -34,7 +34,11 @@ const ProductType = ({ productType, categoryId, categoryTitle }) => {
   return (
     <TabPane title={productType.label} productType={productType.label} key={productType.id}>
       <div className="products_container">
-        {loading ? 'loading' : <ProductList productsData={data} categoryTitle={categoryTitle} />}
+        {loading ? (
+          'loading'
+        ) : (
+          <ProductList productsData={data} categoryId={categoryId} categoryTitle={categoryTitle} />
+        )}
       </div>
     </TabPane>
   );
