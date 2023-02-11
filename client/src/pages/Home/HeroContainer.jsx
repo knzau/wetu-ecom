@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-// import { BASE_URL } from '../../utils';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { HeroSlides } from './HeroSlides';
 import CustomButton from '../../components/Button/CustomButton';
-import './Home.scss';
 import Features from '../../components/Features/Features';
+import { BASE_URL } from '../../utils';
+import './Home.scss';
 
 const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
   const bannerSizeRef = useRef();
@@ -23,7 +23,7 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
         </Link>
         <img
           className="side-image"
-          src={`http://localhost:1337${category?.attributes.image?.data?.attributes?.url}`}
+          src={BASE_URL + category?.attributes.image?.data?.attributes?.url}
           alt="misto-img1"
         />
       </div>

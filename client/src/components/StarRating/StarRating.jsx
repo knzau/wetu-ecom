@@ -2,7 +2,6 @@ import React from 'react';
 import './StarRating.scss';
 
 const StarRating = ({ rating, reviewsNum = '' }) => {
-  console.log(reviewsNum);
   return (
     <div className="star-rating">
       <div className="stars">

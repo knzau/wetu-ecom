@@ -4,7 +4,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ShareIcon from '@mui/icons-material/Share';
 import './BreadCrumb.scss';
 
-const BreadCrumb = ({ pageTitle = '', categoryTitle = '' }) => {
+const BreadCrumb = ({ pageTitle = '', categoryId = '', categoryTitle = '' }) => {
   return (
     <div className="bread-crumb">
       <div className="right">
@@ -15,7 +15,7 @@ const BreadCrumb = ({ pageTitle = '', categoryTitle = '' }) => {
         {categoryTitle && (
           <NavLink
             className={({ isActive }) => (isActive ? 'link active' : 'link inactive')}
-            to={`/categories/${categoryTitle}`}>
+            to={`/categories/${categoryId}`}>
             {categoryTitle}
           </NavLink>
         )}

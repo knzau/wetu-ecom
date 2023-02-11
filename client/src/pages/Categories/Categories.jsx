@@ -57,7 +57,6 @@ const Categories = () => {
       index === position ? !item : item
     );
     if (filterId === 'color') {
-      console.log({ filter, filterId });
       setFilter({ [filterId]: filter });
     }
     if (filterId === 'size') {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -6,20 +6,11 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
-import CurrencyContext from '../../hooks/CurrencyContext';
-import SelectDropdown from '../SelectDropdown/SelectDropdown';
 import MistoLogo from '../../assets/icons/MistoLogo';
 import { SocialMediaIcons } from '../utils';
 import './Navbar.scss';
-import { CURRENCIES, getSelectCurrencyOptions } from '../../utils';
 
 const Navbar = () => {
-  const { currentCurrency } = useContext(CurrencyContext);
-  console.log({ currentCurrency });
-
-  const handleSelectCurrency = (e) => {
-    console.log(e);
-  };
   return (
     <>
       <div className="top-bar">
@@ -76,12 +67,7 @@ const Navbar = () => {
           <div className="item">
             <SearchOutlinedIcon />
           </div>
-          <div className="item">
-            <SelectDropdown
-              selectOptions={getSelectCurrencyOptions(CURRENCIES)}
-              handleChange={handleSelectCurrency}
-            />
-          </div>
+
           <div className="item">
             <PersonOutlineOutlinedIcon />
           </div>

@@ -11,6 +11,10 @@
     font-size: 14px;
     color: #121212;
     font-weight: normal;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   .left,

@@ -2,7 +2,6 @@ import React from 'react';
 import './SelectDropdown.scss';
 
 const SelectDropdown = ({ selectOptions, className = 'select', handleChange }) => {
-  console.log(selectOptions);
   return (
     <select name="select" id="select-dropdown">
       {selectOptions.map((selectOption) => (
