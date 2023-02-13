@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { useStoreRehydrated } from 'easy-peasy';
 import Home from './pages/Home/Home';
 import Product from './pages/Product/ProductPage';
 import Categories from './pages/Categories/Categories';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
-import CurrencyContext from './hooks/CurrencyContext';
 import './app.scss';
-import { DEFAULT_CURRENCY } from './utils';
+import Cart from './components/Cart/Cart';
 
 const Layout = () => {
   return (
@@ -41,13 +40,15 @@ export const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const [currentCurrency, setCurrentCurrency] = useState(DEFAULT_CURRENCY);
-  return (
+  const isRehydrated = useStoreRehydrated();
+
+  return isRehydrated ? (
     <>
-      <CurrencyContext.Provider value={{ currentCurrency, setCurrentCurrency }}>
-        <RouterProvider router={router} />
-      </CurrencyContext.Provider>
+      <Cart />
+      <RouterProvider router={router} />
     </>
+  ) : (
+    <div>Loading ...</div>
   );
 };
 

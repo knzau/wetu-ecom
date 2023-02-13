@@ -5,7 +5,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
 import useFetch from '../../hooks/useFetch';
 import qs from 'qs';
-import { brandFilters, getFilterString, sizeFilters } from '../../utils';
+import { PRODUCTS_URL, brandFilters, getFilterString, sizeFilters } from '../../utils';
 import './Categories.scss';
 
 const Categories = () => {
@@ -48,7 +48,7 @@ const Categories = () => {
     setPriceRangeFilter(e.target.value);
   };
 
-  const { data, loading } = useFetch(`/products?${query}`, [categoryId.id, query]);
+  const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId.id, query]);
 
   const title = data ? data[0]?.attributes?.categories?.data[0]?.attributes?.title : '';
 

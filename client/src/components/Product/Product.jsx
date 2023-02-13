@@ -3,18 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../utils';
 import './Product.scss';
 
-const Product = ({ product, categoryId, categoryTitle }) => {
+const Product = ({ product, categoryTitle }) => {
   const navigate = useNavigate();
-  console.log({ product });
+
   const navigateToProductPage = (productId) => {
-    navigate(`/categories/${categoryTitle}/product/${productId}`, {
-      state: { product: product, categoryTitle: categoryTitle, categoryId: categoryId }
-    });
+    navigate(`/categories/${categoryTitle}/product/${productId}`);
   };
 
   const { price, title, image } = product?.attributes || {};
   const imgUrl = image?.data?.attributes?.url || '';
-  console.log(BASE_URL + imgUrl);
+
   return (
     <div
       key={product.id}

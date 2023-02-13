@@ -1,14 +1,16 @@
 import React, { useMemo } from 'react';
+import qs from 'qs';
 import TabPane from '../TabsComponent/TabPane';
 import useFetch from '../../hooks/useFetch';
 import ProductList from '../ProductList/ProductList';
-import qs from 'qs';
+import { PRODUCTS_URL } from '../../utils';
 
 const ProductType = ({ productType, categoryId, categoryTitle }) => {
   const query = useMemo(
     () =>
       qs.stringify(
         {
+          populate: '*',
           filters: {
             categories: { id: categoryId },
             type: {
@@ -26,10 +28,7 @@ const ProductType = ({ productType, categoryId, categoryTitle }) => {
     [categoryId, productType.label]
   );
 
-  const { data, loading } = useFetch(`/products?populate=*&${query}`, [
-    categoryId,
-    productType.label
-  ]);
+  const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId, productType.label]);
 
   return (
     <TabPane title={productType.label} productType={productType.label} key={productType.id}>

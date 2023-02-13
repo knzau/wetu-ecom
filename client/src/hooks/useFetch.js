@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { get } from '../makeRequests';
 
 const useFetch = (url, deps = []) => {
+  const shouldFetch = useRef(true);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -12,7 +13,7 @@ const useFetch = (url, deps = []) => {
 
     const fetchProductCategories = async () => {
       const cancelToken = getCancelSource.token;
-
+      console.log('fetched');
       try {
         setLoading(true);
         const res = await get(url, cancelToken);
@@ -28,10 +29,13 @@ const useFetch = (url, deps = []) => {
       }
       setLoading(false);
     };
-    fetchProductCategories();
-
+    if (shouldFetch.current) {
+      // prevent useEffect running twice using shouldFetch ref
+      shouldFetch.current = false;
+      fetchProductCategories();
+    }
     return () => {
-      getCancelSource.cancel('Pervious request canceled');
+      getCancelSource.cancel('Previous request canceled');
     };
   }, [...deps]);
 
