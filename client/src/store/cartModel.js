@@ -12,6 +12,18 @@ const cartModel = {
     }
     console.log(debug(state.cartProducts));
   }),
+  increment: action((state, payload) => {
+    const item = state.cartProducts.find((item) => item.id === payload.id);
+    if (item) {
+      item.qty++;
+    }
+  }),
+  decrement: action((state, payload) => {
+    const item = state.cartProducts.find((item) => item.id === payload.id);
+    if (item) {
+      item.qty--;
+    }
+  }),
   removeItem: action((state, payload) => {
     state.cartProducts = state.cartProducts.filter((item) => item.id !== payload.id);
   }),

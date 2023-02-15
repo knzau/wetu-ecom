@@ -1,10 +1,20 @@
 import React from 'react';
 import './Cart.scss';
-import { useStoreState } from 'easy-peasy';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 import { BASE_URL } from '../../utils';
 
 const Cart = () => {
   const cartProducts = useStoreState((state) => state.cartModel.cartProducts);
+  console.log({ cartProducts });
+  const { increment, decrement, removeItem } = useStoreActions((actions) => actions.cartModel);
+
+  const handleDecrement = (cartProduct = {}) => {
+    if (cartProduct.qty > 1) {
+      decrement(cartProduct);
+    } else {
+      removeItem(cartProduct);
+    }
+  };
 
   return cartProducts.length ? (
     <div className="cart">
@@ -30,9 +40,15 @@ const Cart = () => {
                 </p>
               </div>
               <div className="cart-product__info-btns">
-                <span>&#8722;</span>
-                <span>1</span>
-                <span>&#43;</span>
+                <span
+                  className="cart-product__qty-change"
+                  onClick={() => handleDecrement(cartProduct)}>
+                  &#8722;
+                </span>
+                <span>{cartProduct.qty}</span>
+                <span className="cart-product__qty-change" onClick={() => increment(cartProduct)}>
+                  &#43;
+                </span>
               </div>
             </div>
           </div>

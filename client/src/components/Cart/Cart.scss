@@ -4,11 +4,13 @@
   z-index: 4000;
   width: 340px;
   position: absolute;
-  top: 50px;
+  top: 136px;
   right: 50px;
+  max-height: 514px;
   border-radius: 3px;
-  background-color: #fafafa;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-shadow: -13px 19px 22px -12px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
 
   .cart-title {
     font-size: 14px;
@@ -99,11 +101,20 @@
       height: 20px;
       width: 20px;
       font-weight: 600;
-      background-color: #f8f8f8;
+      background-color: #fafafa;
     }
   }
 }
 
 .uppercase {
   text-transform: uppercase !important;
+}
+
+.cart-product__qty-change {
+  cursor: pointer;
+  border: 1px solid #fff;
+
+  &:hover {
+    border: 1px solid #121212;
+  }
 }

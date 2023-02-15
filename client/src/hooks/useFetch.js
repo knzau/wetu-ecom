@@ -13,7 +13,7 @@ const useFetch = (url, deps = []) => {
 
     const fetchProductCategories = async () => {
       const cancelToken = getCancelSource.token;
-      console.log('fetched');
+
       try {
         setLoading(true);
         const res = await get(url, cancelToken);
