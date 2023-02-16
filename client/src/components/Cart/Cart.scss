@@ -1,6 +1,7 @@
 .cart {
   padding: 16px;
   min-height: 200px;
+  position: relative;
   z-index: 4000;
   width: 340px;
   position: absolute;
@@ -11,6 +12,10 @@
   background-color: #fff;
   box-shadow: -13px 19px 22px -12px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
+
+  h2 {
+    opacity: 0.6;
+  }
 
   .cart-title {
     font-size: 14px;
@@ -78,6 +83,9 @@
     p {
       color: #121212;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
       span {
         opacity: 0.6;
         font-weight: 400;

@@ -6,7 +6,9 @@ import { BASE_URL } from '../../utils';
 const Cart = () => {
   const cartProducts = useStoreState((state) => state.cartModel.cartProducts);
 
-  const { increment, decrement, removeItem } = useStoreActions((actions) => actions.cartModel);
+  const { increment, decrement, removeItem, handleShowHideCart } = useStoreActions(
+    (actions) => actions.cartModel
+  );
 
   const handleDecrement = (cartProduct = {}) => {
     if (cartProduct.qty > 1) {
@@ -18,6 +20,9 @@ const Cart = () => {
 
   return cartProducts.length ? (
     <div className="cart">
+      <span className="closeBtn" onClick={handleShowHideCart}>
+        &#x2715;
+      </span>
       <span className="cart-title">Shopping Cart</span>
       {cartProducts.map((cartProduct) => (
         <div className="cart-product" key={cartProduct.id}>
@@ -36,7 +41,7 @@ const Cart = () => {
                   Color: <span>{cartProduct.color}</span>
                 </p>
                 <p>
-                  Size: <span className="uppercase">{cartProduct.selectedSizes.join(', ')}</span>{' '}
+                  Size: <span className="uppercase">{cartProduct.selectedSizes}</span>{' '}
                 </p>
               </div>
               <div className="cart-product__info-btns">
@@ -57,6 +62,9 @@ const Cart = () => {
     </div>
   ) : (
     <div className="center-items cart">
+      <span className="closeBtn" onClick={handleShowHideCart}>
+        &#x2715;
+      </span>
       <h2>Shopping Cart is Empty</h2>
     </div>
   );

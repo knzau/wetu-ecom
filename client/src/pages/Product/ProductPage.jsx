@@ -17,7 +17,7 @@ const ProductPage = React.memo(() => {
   const [productSizes, setProductSizes] = useState([]);
   const [showError, setShowError] = useState(false);
 
-  const addToCart = useStoreActions((actions) => actions.cartModel.addToCart);
+  const { addToCart, handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
 
   const { id } = useParams();
 
@@ -54,14 +54,8 @@ const ProductPage = React.memo(() => {
 
   const handleClickProductSize = useCallback(
     (size = '') => {
-      const hasSize = productSizes.includes(size);
       setShowError(false);
-      if (hasSize) {
-        const newSizes = productSizes.filter((item) => item !== size);
-        setProductSizes(newSizes);
-      } else {
-        setProductSizes((prevSizes) => [...prevSizes, size]);
-      }
+      setProductSizes(size);
     },
     [productSizes, setProductSizes]
   );
@@ -72,6 +66,7 @@ const ProductPage = React.memo(() => {
     } else {
       setShowError(false);
       addToCart({ ...cartProduct });
+      handleShowHideCart();
     }
   }, [showError, productSizes]);
 
@@ -130,16 +125,20 @@ const ProductPage = React.memo(() => {
               <div className="product__details-size_label">
                 <p>
                   <span>size:</span>
-                  {productSizes.length ? productSizes.join(', ') : ''}
+                  {size.length ? size.split(', ') : ''}
                 </p>
 
                 <div className="product__details-item-size__wrapper">
-                  {size &&
+                  {size.length &&
                     size.split(',').map((sizeLabel) => (
                       <span
                         key={sizeLabel}
-                        className="product__details-item_size"
-                        onClick={() => handleClickProductSize(sizeLabel)}>
+                        onClick={() => handleClickProductSize(sizeLabel)}
+                        className={
+                          sizeLabel === productSizes
+                            ? 'highlight-box product__details-item_size'
+                            : 'product__details-item_size'
+                        }>
                         {sizeLabel}
                       </span>
                     ))}
@@ -176,7 +175,7 @@ const ProductPage = React.memo(() => {
                   <span>color:</span> {color}
                 </p>
                 <p>
-                  <span>size:</span> {productSizes.join(', ')}
+                  <span>size:</span> {size}
                 </p>
                 <p>
                   <span>material:</span> {material}

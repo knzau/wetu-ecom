@@ -36,3 +36,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.closeBtn {
+  font-weight: 600;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
