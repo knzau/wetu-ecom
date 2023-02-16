@@ -5,7 +5,7 @@ import { BASE_URL } from '../../utils';
 
 const Cart = () => {
   const cartProducts = useStoreState((state) => state.cartModel.cartProducts);
-  console.log({ cartProducts });
+
   const { increment, decrement, removeItem } = useStoreActions((actions) => actions.cartModel);
 
   const handleDecrement = (cartProduct = {}) => {
@@ -56,7 +56,9 @@ const Cart = () => {
       ))}
     </div>
   ) : (
-    <></>
+    <div className="center-items cart">
+      <h2>Shopping Cart is Empty</h2>
+    </div>
   );
 };
 

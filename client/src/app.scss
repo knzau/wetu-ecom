@@ -30,3 +30,9 @@ body {
   font-weight: normal;
   box-sizing: border-box;
 }
+
+.center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

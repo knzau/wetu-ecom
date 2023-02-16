@@ -1,7 +1,8 @@
-import { action, debug } from 'easy-peasy';
+import { action, computed } from 'easy-peasy';
 
 const cartModel = {
   cartProducts: [],
+  showCart: false,
   addToCart: action((state, payload) => {
     const item = state.cartProducts.find((item) => item.id === payload.id);
 
@@ -10,7 +11,6 @@ const cartModel = {
     } else {
       state.cartProducts.push(payload);
     }
-    console.log(debug(state.cartProducts));
   }),
   increment: action((state, payload) => {
     const item = state.cartProducts.find((item) => item.id === payload.id);
@@ -27,8 +27,14 @@ const cartModel = {
   removeItem: action((state, payload) => {
     state.cartProducts = state.cartProducts.filter((item) => item.id !== payload.id);
   }),
+  totalCartItems: computed((state) => {
+    return state.cartProducts.reduce((acc, item) => acc + item?.qty, 0);
+  }),
   resetCart: action((state) => {
     state.cartProducts = [];
+  }),
+  handleShowHideCart: action((state) => {
+    state.showCart = !state.showCart;
   })
 };
 

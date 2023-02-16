@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -11,6 +12,9 @@ import { SocialMediaIcons } from '../utils';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const { handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
+  const { totalCartItems } = useStoreState((state) => state.cartModel);
+
   return (
     <>
       <div className="top-bar">
@@ -71,9 +75,9 @@ const Navbar = () => {
           <div className="item">
             <PersonOutlineOutlinedIcon />
           </div>
-          <div className="item cart-icon">
+          <div className="item cart-icon" onClick={handleShowHideCart}>
             <LocalMallOutlinedIcon />
-            <span>0</span>
+            <span>{totalCartItems || 0}</span>
           </div>
         </div>
       </nav>
