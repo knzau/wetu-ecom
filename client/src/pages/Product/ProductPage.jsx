@@ -9,66 +9,42 @@ import PaymentMethods from '../../components/PaymentMethods/PaymentMethods';
 import Features from '../../components/Features/Features';
 import useFetch from '../../hooks/useFetch';
 import { BASE_URL } from '../../utils';
-import { useStoreActions } from 'easy-peasy';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 import './ProductPage.scss';
+import useHandleProductActions from '../../hooks/useHandleProductActions';
 
 const ProductPage = React.memo(() => {
   const [imageIndex, setImageIndex] = useState(0);
-  const [productSizes, setProductSizes] = useState([]);
-  const [showError, setShowError] = useState(false);
-
+  const { showCart } = useStoreState((state) => state.cartModel);
   const { addToCart, handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
-
   const { id } = useParams();
-
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`, [id]);
+
   const product = data?.attributes || {};
   const { image, image2, price, title, color, size, description, material, reviews, categories } =
     product;
 
   const category = categories?.data[0] || {};
+  const productImages = [image, image2];
+  const {
+    selectedSize,
+    handleSelectProductSize,
+    selectSizeError,
+    setSelectSizeError,
+    handleSelectImage,
+    getSelectedThumbnailClass
+  } = useHandleProductActions(productImages);
 
-  const images = [image, image2];
-  const cartProduct = { ...product, id: id, qty: 1, selectedSizes: productSizes };
-
-  const getSelectedImageClass = (index, imageIndex) => {
-    return parseInt(imageIndex) === parseInt(index) ? ' selected-product' : 'unselected-product';
-  };
-
-  const handleSelectImage = useCallback(
-    (direction) => {
-      const lastImage = images.length - 1;
-      const firstImage = 0;
-      if (direction === 'up') {
-        setImageIndex((prevImageIndex) =>
-          prevImageIndex > firstImage ? prevImageIndex - 1 : lastImage
-        );
-      } else {
-        setImageIndex((prevImageIndex) =>
-          prevImageIndex < lastImage ? prevImageIndex + 1 : firstImage
-        );
-      }
-    },
-    [imageIndex, setImageIndex]
-  );
-
-  const handleClickProductSize = useCallback(
-    (size = '') => {
-      setShowError(false);
-      setProductSizes(size);
-    },
-    [productSizes, setProductSizes]
-  );
-
+  const cartProduct = { ...product, id: id, qty: 1, selectedSize: selectedSize };
+  console.log({ showCart });
   const handleAddToCart = useCallback(() => {
-    if (!productSizes.length) {
-      setShowError(true);
+    if (!selectedSize.length) {
+      setSelectSizeError(true);
     } else {
-      setShowError(false);
       addToCart({ ...cartProduct });
-      handleShowHideCart();
+      !showCart && handleShowHideCart();
     }
-  }, [showError, productSizes]);
+  }, [selectedSize]);
 
   return loading
     ? 'Loading'
@@ -92,13 +68,13 @@ const ProductPage = React.memo(() => {
                   <KeyboardArrowUpIcon onClick={() => handleSelectImage('up')} />
                   <KeyboardArrowDownIcon onClick={() => handleSelectImage('down')} />
                 </div>
-                {images.map((image, index) => (
+                {productImages.map((image, index) => (
                   <div
                     className="product__small-img"
                     key={image.data.id}
                     onClick={() => setImageIndex(index)}>
                     <img
-                      className={getSelectedImageClass(index, imageIndex)}
+                      className={getSelectedThumbnailClass(index, imageIndex)}
                       src={BASE_URL + image.data.attributes.url}
                       alt={`image - ${index}`}
                     />
@@ -107,7 +83,7 @@ const ProductPage = React.memo(() => {
               </div>
               <div className="product__main-img">
                 <img
-                  src={BASE_URL + images[imageIndex].data.attributes.url}
+                  src={BASE_URL + productImages[imageIndex].data.attributes.url}
                   alt={`image - ${imageIndex}`}
                 />
               </div>
@@ -125,7 +101,7 @@ const ProductPage = React.memo(() => {
               <div className="product__details-size_label">
                 <p>
                   <span>size:</span>
-                  {size.length ? size.split(', ') : ''}
+                  {size.length ? size.split(',').join(', ') : ''}
                 </p>
 
                 <div className="product__details-item-size__wrapper">
@@ -133,9 +109,9 @@ const ProductPage = React.memo(() => {
                     size.split(',').map((sizeLabel) => (
                       <span
                         key={sizeLabel}
-                        onClick={() => handleClickProductSize(sizeLabel)}
+                        onClick={() => handleSelectProductSize(sizeLabel)}
                         className={
-                          sizeLabel === productSizes
+                          sizeLabel === selectedSize
                             ? 'highlight-box product__details-item_size'
                             : 'product__details-item_size'
                         }>
@@ -152,7 +128,7 @@ const ProductPage = React.memo(() => {
                     onClick={() => handleAddToCart()}>
                     Add to cart
                   </CustomButton>
-                  {showError && <span className="error-text">Please select Size</span>}
+                  {selectSizeError && <span className="error-text">Please select Size</span>}
                 </div>
               </div>
               <div className="product__features">
@@ -175,7 +151,7 @@ const ProductPage = React.memo(() => {
                   <span>color:</span> {color}
                 </p>
                 <p>
-                  <span>size:</span> {size}
+                  <span>size:</span> {size.length ? size.split(',').join(', ') : ''}
                 </p>
                 <p>
                   <span>material:</span> {material}
