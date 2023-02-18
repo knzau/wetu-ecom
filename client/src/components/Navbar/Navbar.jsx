@@ -10,10 +10,12 @@ import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import MistoLogo from '../../assets/icons/MistoLogo';
 import { SocialMediaIcons } from '../utils';
 import './Navbar.scss';
+import Cart from '../Cart/Cart';
 
 const Navbar = () => {
   const { handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
   const { totalCartItems } = useStoreState((state) => state.cartModel);
+  const showCart = useStoreState((state) => state.cartModel.showCart);
 
   return (
     <>
@@ -81,6 +83,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {showCart && <Cart />}
     </>
   );
 };

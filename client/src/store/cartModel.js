@@ -30,6 +30,12 @@ const cartModel = {
   totalCartItems: computed((state) => {
     return state.cartProducts.reduce((acc, item) => acc + item?.qty, 0);
   }),
+  totalPrice: computed((state) => {
+    return state.cartProducts.reduce(
+      (total, item) => total + Number(item?.qty) * Number(item?.price),
+      0
+    );
+  }),
   resetCart: action((state) => {
     state.cartProducts = [];
   }),
