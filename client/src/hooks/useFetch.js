@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import { get } from '../makeRequests';
+import { makeRequest } from '../makeRequests';
 
 const useFetch = (url, deps = []) => {
   const shouldFetch = useRef(true);
@@ -16,7 +16,7 @@ const useFetch = (url, deps = []) => {
 
       try {
         setLoading(true);
-        const res = await get(url, cancelToken);
+        const res = await makeRequest.get(url, cancelToken);
 
         if (res?.data) {
           setData(res.data.data);

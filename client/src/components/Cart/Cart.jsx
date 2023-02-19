@@ -1,13 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import { BASE_URL } from '../../utils';
 import CustomButton from '../Button/CustomButton';
 import './Cart.scss';
+// import axios from 'axios';
+import { makeRequest } from '../../makeRequests';
 
 const Cart = () => {
-  const navigate = useNavigate();
-  const { cartProducts, totalPrice, showCart } = useStoreState((state) => state.cartModel);
+  const { cartProducts, totalPrice, showCart, resetCart } = useStoreState(
+    (state) => state.cartModel
+  );
 
   const { increment, decrement, removeItem, handleShowHideCart } = useStoreActions(
     (actions) => actions.cartModel
@@ -21,9 +25,24 @@ const Cart = () => {
     }
   };
 
-  const navigateToCheckout = () => {
-    navigate('/checkout');
-    !!showCart && handleShowHideCart();
+  const stripePromise = loadStripe(
+    'pk_test_51HHEgxJHFnGkoT5WILq5CAvF1htqpuuxPo60gqII1kVy3oUx6JmJUBBIuMPCSYMxvYQS8ZOLMcxTcTEFSNvHtfQH0063s8qD1m'
+  );
+
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+
+      const res = await makeRequest.post('/orders', { products: cartProducts });
+      resetCart();
+      !!showCart && handleShowHideCart();
+
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return cartProducts.length ? (
@@ -74,7 +93,7 @@ const Cart = () => {
           <span>subtotal</span>
           <span>$ {totalPrice}</span>
         </div>
-        <CustomButton className="primary-btn  checkout-btn" onClick={navigateToCheckout}>
+        <CustomButton className="primary-btn  checkout-btn" onClick={handlePayment}>
           Checkout
         </CustomButton>
       </div>
