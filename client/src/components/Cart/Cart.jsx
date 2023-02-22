@@ -1,19 +1,16 @@
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-
+import { makeRequest } from '../../makeRequests';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import { BASE_URL } from '../../utils';
 import CustomButton from '../Button/CustomButton';
 import './Cart.scss';
-// import axios from 'axios';
-import { makeRequest } from '../../makeRequests';
 
 const Cart = () => {
-  const { cartProducts, totalPrice, showCart, resetCart } = useStoreState(
-    (state) => state.cartModel
-  );
+  const { cartProducts, totalPrice, showCart } = useStoreState((state) => state.cartModel);
 
-  const { increment, decrement, removeItem, handleShowHideCart } = useStoreActions(
+  const { increment, decrement, removeItem, handleShowHideCart, resetCart } = useStoreActions(
     (actions) => actions.cartModel
   );
 
@@ -25,21 +22,19 @@ const Cart = () => {
     }
   };
 
-  const stripePromise = loadStripe(
-    'pk_test_51HHEgxJHFnGkoT5WILq5CAvF1htqpuuxPo60gqII1kVy3oUx6JmJUBBIuMPCSYMxvYQS8ZOLMcxTcTEFSNvHtfQH0063s8qD1m'
-  );
+  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
 
   const handlePayment = async () => {
     try {
       const stripe = await stripePromise;
 
       const res = await makeRequest.post('/orders', { products: cartProducts });
-      resetCart();
-      !!showCart && handleShowHideCart();
 
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id
       });
+      res && res.data && resetCart();
+      !!showCart && handleShowHideCart();
     } catch (error) {
       console.error(error);
     }
@@ -58,10 +53,13 @@ const Cart = () => {
           </div>
           <div className="cart-product__info">
             <div className="cart-product__info-top">
-              <h2>{cartProduct.title}</h2>
-              <p className="cart-product__price">
-                <span>{cartProduct.qty} x </span>${cartProduct.price}
-              </p>
+              <div className="cart-product__info-top-right">
+                <h2>{cartProduct.title}</h2>
+                <p className="cart-product__price">
+                  <span>{cartProduct.qty} x </span>${cartProduct.price}
+                </p>
+              </div>
+              <DeleteIcon onClick={() => removeItem(cartProduct)} className="cart__delete-btn" />
             </div>
 
             <div className="cart-product__info-bottom">

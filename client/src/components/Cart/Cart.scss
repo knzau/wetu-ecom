@@ -54,7 +54,20 @@
 
     .cart-product__info-top {
       display: flex;
+      justify-content: space-between;
+    }
+
+    .cart__delete-btn {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .cart-product__info-top-right {
+      display: flex;
       flex-direction: column;
+      flex-basis: 65%;
     }
 
     h2 {

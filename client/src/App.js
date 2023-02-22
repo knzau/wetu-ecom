@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 
 import './app.scss';
 import CheckoutPage from './pages/Checkout/CheckoutPage';
+import About from './pages/About/About';
 
 const Layout = () => {
   return (
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <CheckoutPage />
+      },
+      {
+        path: '/about-us',
+        element: <About />
       }
     ]
   }

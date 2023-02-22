@@ -1,0 +1,55 @@
+.about-us__container {
+  width: 100%;
+
+  .about-us__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+  }
+
+  .about-us__item {
+    h1 {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .about-us__top-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    text-align: center;
+    row-gap: 16px;
+  }
+
+  .about-us__main-content {
+    width: 100%;
+    display: flex;
+    margin-top: 48px;
+    column-gap: 32px;
+
+    .about-us__main-left {
+      flex-basis: 60%;
+      padding: 5rem;
+      background-color: #fafafa;
+    }
+    .about-us__img-box {
+      flex-basis: 40%;
+
+      img {
+        width: 60%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

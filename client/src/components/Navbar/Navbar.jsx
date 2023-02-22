@@ -9,8 +9,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import MistoLogo from '../../assets/icons/MistoLogo';
 import { SocialMediaIcons } from '../utils';
-import './Navbar.scss';
 import Cart from '../Cart/Cart';
+import './Navbar.scss';
 
 const Navbar = () => {
   const { handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
