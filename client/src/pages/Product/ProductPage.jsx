@@ -10,8 +10,8 @@ import Features from '../../components/Features/Features';
 import useFetch from '../../hooks/useFetch';
 import { BASE_URL } from '../../utils';
 import { useStoreActions, useStoreState } from 'easy-peasy';
-import './ProductPage.scss';
 import useHandleProductActions from '../../hooks/useHandleProductActions';
+import './ProductPage.scss';
 
 const ProductPage = React.memo(() => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -36,7 +36,7 @@ const ProductPage = React.memo(() => {
   } = useHandleProductActions(productImages);
 
   const cartProduct = { ...product, id: id, qty: 1, selectedSize: selectedSize };
-  console.log({ showCart });
+
   const handleAddToCart = useCallback(() => {
     if (!selectedSize.length) {
       setSelectSizeError(true);
