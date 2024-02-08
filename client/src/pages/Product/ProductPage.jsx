@@ -18,11 +18,14 @@ const ProductPage = React.memo(() => {
   const { showCart } = useStoreState((state) => state.cartModel);
   const { addToCart, handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
   const { id } = useParams();
+  console.log({ id });
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`, [id]);
 
   const product = data?.attributes || {};
   const { image, image2, price, title, color, size, description, material, reviews, categories } =
     product;
+
+  console.log({ product });
 
   const category = categories?.data[0] || {};
   const productImages = [image, image2];

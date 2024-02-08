@@ -15,7 +15,9 @@
     "@strapi/plugin-users-permissions": "4.6.0",
     "@strapi/provider-upload-cloudinary": "^4.7.0",
     "@strapi/strapi": "4.6.0",
-    "pg": "8.6.0",
+    "@strapi/utils": "^4.19.0",
+    "pg": "^8.11.3",
+    "strapi-plugin-import-export-entries": "^1.23.1",
     "stripe": "^11.11.0"
   },
   "author": {

@@ -5,13 +5,12 @@ import { BASE_URL } from '../../utils';
 import './About.scss';
 
 const About = () => {
-  const { data, loading, error } = useFetch('/about-us?populate=*');
+  const { data, loading } = useFetch('/about-us?populate=*');
 
   const { description1, description2, header1, header2, image } = data?.attributes || {};
 
   const imgSrc = image?.data?.attributes?.url || '';
 
-  console.log({ data, loading, error });
   return loading ? (
     <p>loading...</p>
   ) : (

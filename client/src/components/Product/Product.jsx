@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../utils';
 import './Product.scss';
 
 const Product = ({ product, categoryTitle }) => {
@@ -19,7 +18,7 @@ const Product = ({ product, categoryTitle }) => {
       className="product__wrapper"
       onClick={() => navigateToProductPage(product.id)}>
       <div className="product__image-wrapper">
-        <img src={BASE_URL + imgUrl} alt={''} />
+        <img src={imgUrl} alt={''} />
       </div>
 
       <span className="product__label">{title}</span>
