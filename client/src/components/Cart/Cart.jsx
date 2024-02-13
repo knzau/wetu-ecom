@@ -3,7 +3,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import { makeRequest } from '../../makeRequests';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useStoreActions, useStoreState } from 'easy-peasy';
-import { BASE_URL } from '../../utils';
 import CustomButton from '../Button/CustomButton';
 import './Cart.scss';
 
@@ -22,7 +21,7 @@ const Cart = () => {
     }
   };
 
-  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+  const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
   const handlePayment = async () => {
     try {
@@ -49,7 +48,7 @@ const Cart = () => {
       {cartProducts.map((cartProduct) => (
         <div className="cart-product" key={cartProduct.id}>
           <div className="cart-product__img-wrapper">
-            <img src={BASE_URL + cartProduct.image.data.attributes.url} alt="product-img" />
+            <img src={cartProduct.image.data.attributes.url} alt="product-img" />
           </div>
           <div className="cart-product__info">
             <div className="cart-product__info-top">
