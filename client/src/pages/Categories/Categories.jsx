@@ -10,7 +10,6 @@ import './Categories.scss';
 
 const Categories = () => {
   const categoryId = useParams();
-  console.log({ categoryId });
   const [priceRangeFilter, setPriceRangeFilter] = useState('7-1200');
   const [checkedSizeFilter, setCheckedSizeFilter] = useState(
     new Array(sizeFilters.length).fill(false)
@@ -50,7 +49,6 @@ const Categories = () => {
   };
 
   const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId.id, query]);
-  console.log({ data });
 
   const title = data ? data[0]?.attributes?.categories?.data[0]?.attributes?.title : '';
 
