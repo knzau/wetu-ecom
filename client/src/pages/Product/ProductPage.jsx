@@ -76,7 +76,7 @@ const ProductPage = React.memo(() => {
                     onClick={() => setImageIndex(index)}>
                     <img
                       className={getSelectedThumbnailClass(index, imageIndex)}
-                      src={BASE_URL + image.data.attributes.url}
+                      src={image.data.attributes.url}
                       alt={`image - ${index}`}
                     />
                   </div>
@@ -84,7 +84,7 @@ const ProductPage = React.memo(() => {
               </div>
               <div className="product__main-img">
                 <img
-                  src={BASE_URL + productImages[imageIndex].data.attributes.url}
+                  src={productImages[imageIndex].data.attributes.url}
                   alt={`image - ${imageIndex}`}
                 />
               </div>
@@ -96,7 +96,7 @@ const ProductPage = React.memo(() => {
                   {color}
                 </p>
                 <div className="product__details-item_img">
-                  <img src={BASE_URL + image?.data?.attributes?.url} alt="product-color" />
+                  <img src={image?.data?.attributes?.url} alt="product-color" />
                 </div>
               </div>
               <div className="product__details-size_label">
