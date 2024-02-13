@@ -8,7 +8,6 @@ import CustomButton from '../../components/Button/CustomButton';
 import PaymentMethods from '../../components/PaymentMethods/PaymentMethods';
 import Features from '../../components/Features/Features';
 import useFetch from '../../hooks/useFetch';
-import { BASE_URL } from '../../utils';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import useHandleProductActions from '../../hooks/useHandleProductActions';
 import './ProductPage.scss';
