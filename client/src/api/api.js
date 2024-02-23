@@ -1,8 +1,8 @@
-import Product from '../components/Product/Product';
 import About from '../pages/About/About';
 import Categories from '../pages/Categories/Categories';
 import CheckoutPage from '../pages/Checkout/CheckoutPage';
 import Home from '../pages/Home/Home';
+import ProductPage from '../pages/Product/ProductPage';
 
 //paths URLs
 export const HOME_PATH = '/';
@@ -29,7 +29,7 @@ export const appRoutes = [
   },
   {
     path: PRODUCT_PATH,
-    element: <Product />
+    element: <ProductPage />
   },
   {
     path: CHECKOUT_PATH,

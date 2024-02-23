@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import { HeroBannerContent } from '../../mockData';
-import HomeCategories from './HomeCategories';
+import HomeTabsCategories from './HomeCategories';
 import HeroContainer from './HeroContainer';
 import DiscountSection from './DiscountSection';
 import SubscribeSection from './SubscribeSection';
@@ -29,7 +29,7 @@ const Home = () => {
       {loading
         ? 'loading'
         : data?.map((category) => (
-            <HomeCategories
+            <HomeTabsCategories
               key={category?.attributes?.title}
               defaultTab={0}
               categoryData={category.attributes}

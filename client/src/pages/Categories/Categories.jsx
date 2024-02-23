@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Filters from '../../components/Filters/Filters';
 import ProductList from '../../components/ProductList/ProductList';
-import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
 import useFetch from '../../hooks/useFetch';
 import qs from 'qs';
 import { PRODUCTS_URL, brandFilters, getFilterString, sizeFilters } from '../../utils';
@@ -50,8 +49,6 @@ const Categories = () => {
 
   const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId.id, query]);
 
-  const title = data ? data[0]?.attributes?.categories?.data[0]?.attributes?.title : '';
-
   const handleClickFilters = (filter, filterId, position) => {
     const updatedCheckedState = checkedSizeFilter.map((item, index) =>
       index === position ? !item : item
@@ -72,10 +69,6 @@ const Categories = () => {
 
   return (
     <div className="category-page__container">
-      <div className="page-banner">
-        <BreadCrumb categoryTitle={title} />
-        <span className="page-banner__title">{title}</span>
-      </div>
       <div className="page__content">
         <Filters
           handlePriceRangeSelect={handlePriceRangeSelect}

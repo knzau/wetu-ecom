@@ -5,7 +5,7 @@ import CustomButton from '../../components/Button/CustomButton';
 import ProductType from '../../components/ProductType/ProductType';
 import { productTypes } from './HomeUtils';
 
-const HomeCategories = ({ defaultTab, categoryData, categoryId }) => {
+const HomeTabsCategories = ({ defaultTab, categoryData, categoryId }) => {
   const navigate = useNavigate();
   const navigateToProductCategory = () => {
     navigate(`/categories/${categoryId}`);
@@ -30,4 +30,4 @@ const HomeCategories = ({ defaultTab, categoryData, categoryId }) => {
   );
 };
 
-export default HomeCategories;
+export default HomeTabsCategories;

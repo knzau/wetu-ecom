@@ -14,9 +14,11 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
     bannerSizeRef.current = bannerEl.offsetWidth;
   }
 
-  const CategoryHeroEl = () => {
-    return categoryData?.map((category) => (
-      <div className="col hero-banner" key={category.id}>
+  const topCategories = categoryData?.filter((category) => category.id <= 2);
+  const bottomCategories = categoryData?.filter((category) => category.id > 2);
+  const TopCategoryHeroEl = () => {
+    return topCategories?.map((category) => (
+      <div className="row" key={category.id}>
         <Link className="link" to={`/categories/${category.id}`}>
           <CustomButton className="hero-btn">{category.attributes.title}</CustomButton>
         </Link>
@@ -27,6 +29,22 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
         />
       </div>
     ));
+  };
+
+  const BottomCategoryHeroEl = () => {
+    return bottomCategories?.map((category) => {
+      const imageURl = category?.attributes?.image?.data?.attributes?.url || '';
+      return (
+        <div
+          className="row hero-category__bottom"
+          key={category.id}
+          style={{ backgroundImage: `url(${imageURl})` }}>
+          <Link className="link" to={`/categories/${category.id}`}>
+            <CustomButton className="hero-btn">accesories</CustomButton>
+          </Link>
+        </div>
+      );
+    });
   };
 
   return (
@@ -45,20 +63,13 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
             </div>
           </div>
         </div>
-        <div className="col-lg ">
-          <div className="row">
-            <CategoryHeroEl />
+        <div className="col-lg category-el__wrapper">
+          <div className="hero-category__top">
+            {' '}
+            <TopCategoryHeroEl />
           </div>
-          <div className="row hero-banner">
-            <Link className="link" to="/products/1">
-              <CustomButton className="hero-btn">accesories</CustomButton>
-            </Link>
-            <img
-              className="side-image"
-              src="https://images.pexels.com/photos/1306262/pexels-photo-1306262.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt="misto-img1"
-            />
-          </div>
+
+          <BottomCategoryHeroEl />
         </div>
       </div>
       <Features isHomeFeatures={true} />

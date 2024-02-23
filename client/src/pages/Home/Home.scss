@@ -33,6 +33,22 @@
       }
     }
 
+    .hero-category__top {
+      display: flex;
+      width: 100%;
+      height: 50%;
+      gap: 25px;
+    }
+
+    .hero-category__bottom {
+      display: flex;
+      width: 100%;
+      height: 50%;
+      gap: 25px;
+      background-position: center;
+      background-size: cover;
+    }
+
     .hero-banner {
       position: relative;
       width: 100%;

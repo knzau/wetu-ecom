@@ -18,7 +18,7 @@ const Navbar = () => {
   const showCart = useStoreState((state) => state.cartModel.showCart);
 
   return (
-    <>
+    <div className="navbar__container">
       <div className="top-bar">
         <div className="top-bar__right">
           <div className="top-bar__item">
@@ -84,7 +84,7 @@ const Navbar = () => {
         </div>
       </nav>
       {showCart && <Cart />}
-    </>
+    </div>
   );
 };
 

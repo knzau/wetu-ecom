@@ -1,3 +1,8 @@
+.navbar__container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 .nav-bar__wrapper {
   display: flex;
   justify-content: space-between;

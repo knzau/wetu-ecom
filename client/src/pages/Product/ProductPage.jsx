@@ -3,7 +3,6 @@ import React, { useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
 import CustomButton from '../../components/Button/CustomButton';
 import PaymentMethods from '../../components/PaymentMethods/PaymentMethods';
 import Features from '../../components/Features/Features';
@@ -12,7 +11,7 @@ import { useStoreActions, useStoreState } from 'easy-peasy';
 import useHandleProductActions from '../../hooks/useHandleProductActions';
 import './ProductPage.scss';
 
-const ProductPage = React.memo(() => {
+const ProductPage = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const { showCart } = useStoreState((state) => state.cartModel);
   const { addToCart, handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
@@ -21,10 +20,8 @@ const ProductPage = React.memo(() => {
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`, [id]);
 
   const product = data?.attributes || {};
-  const { image, image2, price, title, color, size, description, material, reviews, categories } =
-    product;
+  const { image, image2, price, color, size, description, material, reviews, categories } = product;
 
-  const category = categories?.data[0] || {};
   const productImages = [image, image2];
   const {
     selectedSize,
@@ -36,7 +33,7 @@ const ProductPage = React.memo(() => {
   } = useHandleProductActions(productImages);
 
   const cartProduct = { ...product, id: id, qty: 1, selectedSize: selectedSize };
-
+  console.log({ categories });
   const handleAddToCart = useCallback(() => {
     if (!selectedSize.length) {
       setSelectSizeError(true);
@@ -50,17 +47,6 @@ const ProductPage = React.memo(() => {
     ? 'Loading'
     : !error && data && (
         <div className="product-page">
-          <div className="page-banner">
-            <BreadCrumb
-              pageTitle={title}
-              categoryId={category.id}
-              categoryTitle={category.attributes.title}
-              productId={id}
-            />
-            <span className="page-banner__title">{title}</span>
-            <div className="page-banner__bottom"></div>
-          </div>
-
           <div className="product-page__product">
             <div className="product__images-wrapper">
               <div className="product__small-imgs">
@@ -165,6 +151,6 @@ const ProductPage = React.memo(() => {
           </div>
         </div>
       );
-});
+};
 
 export default ProductPage;
