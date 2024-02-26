@@ -3,7 +3,6 @@ import Product from '../Product/Product';
 import './ProductList.scss';
 
 const ProductList = ({ productsData, categoryId = '', categoryTitle = '' }) => {
-  console.log({ productid: productsData[0].id });
   return (
     <div className="product-list__wrapper">
       {productsData

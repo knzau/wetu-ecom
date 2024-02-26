@@ -1,42 +1,17 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { makeRequest } from '../makeRequests';
+import { useQuery } from 'react-query';
+import { fetchDataFromApi } from '../api/services';
+import { useEffect } from 'react';
+import { useStoreActions } from 'easy-peasy';
 
-const useFetch = (url, deps = []) => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+const useFetch = (URL, keys = [], options = {}) => {
+  const setLoading = useStoreActions((actions) => actions.loadingModel.setLoading);
+  const fetchData = () => fetchDataFromApi(URL);
+  const { data, isLoading } = useQuery(keys, fetchData, { ...options });
 
   useEffect(() => {
-    const getCancelSource = axios.CancelToken.source();
+    setLoading(isLoading);
+  }, [isLoading]);
 
-    const fetchFunc = async () => {
-      const cancelToken = getCancelSource.token;
-
-      try {
-        setLoading(true);
-        const res = await makeRequest.get(url, cancelToken);
-
-        if (res?.data) {
-          setData(res.data.data);
-        } else {
-          setData([]);
-        }
-      } catch (error) {
-        console.error(error);
-        setError(error);
-      }
-      setLoading(false);
-    };
-
-    fetchFunc();
-
-    return () => {
-      getCancelSource.cancel('Previous request canceled');
-    };
-  }, [...deps]);
-
-  return { loading, data, error };
+  return { data, isLoading };
 };
-
 export default useFetch;

@@ -1,0 +1,35 @@
+.loader {
+  background-color: white;
+  overflow: hidden;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  z-index: 100000;
+}
+
+.loader__element {
+  height: 3px;
+  width: 100%;
+  background: #efeff4;
+}
+
+.loader__element:before {
+  content: '';
+  display: block;
+  background-color: #3f3f3f;
+  height: 3px;
+  width: 0;
+  animation: getWidth 3s ease-in infinite;
+}
+
+@keyframes getWidth {
+  100% {
+    width: 100%;
+  }
+}

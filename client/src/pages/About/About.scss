@@ -1,54 +1,36 @@
 .about-us__container {
   width: 100%;
+  display: flex;
+  padding: 0 50px;
+  justify-content: center;
 
-  .about-us__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  .about-us__main-left {
+    flex-basis: 50%;
+    background-color: #fafafa;
+    padding: 40px;
 
-  .about-us__item {
-    h1 {
-      font-size: 16px;
-      line-height: 1.5;
+    h2 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
     }
 
     p {
-      font-size: 14px;
+      font-size: 1rem;
       line-height: 1.5;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.6px;
+      margin-bottom: 2rem;
     }
   }
+  .about-us__main-right {
+    flex-basis: 60%;
 
-  .about-us__top-content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
-    text-align: center;
-    row-gap: 16px;
-  }
-
-  .about-us__main-content {
-    width: 100%;
-    display: flex;
-    margin-top: 48px;
-    column-gap: 32px;
-
-    .about-us__main-left {
-      flex-basis: 100%;
-      padding: 5rem;
-      background-color: #fafafa;
-    }
-    .about-us__img-box {
-      flex-basis: 40%;
-
-      img {
-        width: 60%;
-        height: 100%;
-        object-fit: cover;
-      }
+    img {
+      width: 80%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

@@ -18,6 +18,13 @@ export const CART_PATH = '/cart';
 export const ORDER_PATH = '/order';
 export const ORDER_SUCCESS_PATH = '/order-success';
 
+//query keys
+export const ABOUT_US = 'about-us';
+export const ABOUT_US_API = '/about-us?populate=*';
+export const HOME_CATEGORIES = 'home-categories';
+
+export const _10_mins = 10 * (60 * 1000);
+
 export const appRoutes = [
   {
     path: HOME_PATH,

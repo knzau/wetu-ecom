@@ -16,6 +16,7 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
 
   const topCategories = categoryData?.filter((category) => category.id <= 2);
   const bottomCategories = categoryData?.filter((category) => category.id > 2);
+
   const TopCategoryHeroEl = () => {
     return topCategories?.map((category) => (
       <div className="row" key={category.id}>

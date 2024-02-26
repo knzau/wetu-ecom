@@ -1,10 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import qs from 'qs';
 import Filters from '../../components/Filters/Filters';
 import ProductList from '../../components/ProductList/ProductList';
 import useFetch from '../../hooks/useFetch';
-import qs from 'qs';
+
 import { PRODUCTS_URL, brandFilters, getFilterString, sizeFilters } from '../../utils';
+import { _10_mins } from '../../api/api';
+import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
 import './Categories.scss';
 
 const Categories = () => {
@@ -47,7 +50,9 @@ const Categories = () => {
     setPriceRangeFilter(e.target.value);
   };
 
-  const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId.id, query]);
+  const { data, isLoading } = useFetch(PRODUCTS_URL + query, [categoryId.id], {
+    staleTime: _10_mins
+  });
 
   const handleClickFilters = (filter, filterId, position) => {
     const updatedCheckedState = checkedSizeFilter.map((item, index) =>
@@ -76,7 +81,7 @@ const Categories = () => {
           checkedSizeFilter={checkedSizeFilter}
           checkedBrandFilter={checkedBrandFilter}
         />
-        {loading ? 'loading' : data && <ProductList productsData={data} />}
+        {!isLoading ? <LoaderCircle /> : data && <ProductList productsData={data} />}
       </div>
     </div>
   );

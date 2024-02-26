@@ -1,29 +1,28 @@
 import React from 'react';
+import { ABOUT_US, ABOUT_US_API } from '../../api/api';
 import useFetch from '../../hooks/useFetch';
 import './About.scss';
+import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
 
 const About = () => {
-  const { data, loading } = useFetch('/about-us?populate=*');
+  const { data, isLoading } = useFetch(ABOUT_US_API, [ABOUT_US], {
+    staleTime: 10 * (60 * 1000)
+  });
 
   const { description2, header1, image } = data?.attributes || {};
-
   const imgSrc = image?.data?.attributes?.url || '';
 
-  return loading ? (
-    <p>loading...</p>
+  return isLoading ? (
+    <LoaderCircle />
   ) : (
     data && (
       <div className="about-us__container">
-        <div className="about-us__content">
-          <div className="about-us__item about-us__main-content">
-            <div className="about-us__main-left">
-              <h2>{header1}</h2>
-              <p>{description2}</p>
-              <div className="about-us__img-box">
-                <img src={imgSrc} alt="about-image" />
-              </div>
-            </div>
-          </div>
+        <div className="about-us__main-left">
+          <h2>{header1}</h2>
+          <p>{description2}</p>
+        </div>
+        <div className="about-us__main-right">
+          <img src={imgSrc} alt="about-image" />
         </div>
       </div>
     )

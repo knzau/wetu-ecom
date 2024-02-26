@@ -7,9 +7,14 @@ import DiscountSection from './DiscountSection';
 import SubscribeSection from './SubscribeSection';
 import { CATEGORIES_URL } from '../../utils';
 import './Home.scss';
+import { HOME_CATEGORIES, _10_mins } from '../../api/api';
+import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
 
 const Home = () => {
-  const { data, loading } = useFetch(`${CATEGORIES_URL}`);
+  const { data, isLoading } = useFetch(CATEGORIES_URL, [HOME_CATEGORIES], {
+    staleTime: _10_mins
+  });
+
   const [slideIndex, setSlideIndex] = useState(0);
 
   const handleSetSlide = (direction) => {
@@ -26,16 +31,18 @@ const Home = () => {
   return (
     <div className="home">
       <HeroContainer handleSetSlide={handleSetSlide} slideIndex={slideIndex} categoryData={data} />
-      {loading
-        ? 'loading'
-        : data?.map((category) => (
-            <HomeTabsCategories
-              key={category?.attributes?.title}
-              defaultTab={0}
-              categoryData={category.attributes}
-              categoryId={category.id}
-            />
-          ))}
+      {isLoading ? (
+        <LoaderCircle />
+      ) : (
+        data?.map((category) => (
+          <HomeTabsCategories
+            key={category?.attributes?.title}
+            defaultTab={0}
+            categoryData={category.attributes}
+            categoryId={category.id}
+          />
+        ))
+      )}
 
       <DiscountSection />
       <SubscribeSection />

@@ -11,11 +11,13 @@ import MistoLogo from '../../assets/icons/MistoLogo';
 import { SocialMediaIcons } from '../utils';
 import Cart from '../Cart/Cart';
 import './Navbar.scss';
+import LoaderLine from '../LoaderLine/LoaderLine';
 
 const Navbar = () => {
   const { handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
   const { totalCartItems } = useStoreState((state) => state.cartModel);
   const showCart = useStoreState((state) => state.cartModel.showCart);
+  const { isLoading } = useStoreState((state) => state.loadingModel);
 
   return (
     <div className="navbar__container">
@@ -83,6 +85,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {isLoading ? <LoaderLine /> : null}
       {showCart && <Cart />}
     </div>
   );
