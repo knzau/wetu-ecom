@@ -81,7 +81,7 @@ const Categories = () => {
           checkedSizeFilter={checkedSizeFilter}
           checkedBrandFilter={checkedBrandFilter}
         />
-        {!isLoading ? <LoaderCircle /> : data && <ProductList productsData={data} />}
+        {isLoading ? <LoaderCircle /> : data && <ProductList productsData={data} />}
       </div>
     </div>
   );
