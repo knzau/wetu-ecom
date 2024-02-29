@@ -77,6 +77,16 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "sizes": {
+      "type": "enumeration",
+      "enum": [
+        "s",
+        "m",
+        "x",
+        "l",
+        "xl"
+      ]
     }
   }
 }

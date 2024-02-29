@@ -12,6 +12,10 @@ html {
   // font-size: 62.5%; //defines what 1rem is
 }
 
+ul {
+  list-style-type: none;
+}
+
 .app {
   max-width: 100vw;
   position: relative;

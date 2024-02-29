@@ -1,44 +1,50 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// import Filters from '../../components/Filters/Filters';
 import ProductList from '../../components/ProductList/ProductList';
 import useFetch from '../../hooks/useFetch';
-
 import { PRODUCTS_URL } from '../../utils';
 import { _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
-import './Categories.scss';
+import './ProductListByCategories.scss';
 import { defaultProductFilters, getQuery } from '../../api/services';
-import ProductFilters from '../../components/Filters/ProductFilters';
-import useHandleProductFilters from '../../components/Filters/useHandleProductFilters';
+import ProductFilters from '../../components/ProductFilters/ProductFilters';
+import useHandleProductFilters from '../../components/ProductFilters/useHandleProductFilters';
 
-const Categories = () => {
+const ProductListByCategories = () => {
   const categoryId = useParams();
   const { handleClickFilterItem, selectedFilters } = useHandleProductFilters();
 
+  const formattedFilters = selectedFilters.reduce((acc, filter) => {
+    const filterType = Object.keys(filter)[0];
+    return { ...acc, [filterType]: { $in: filter[filterType] } };
+  }, {});
+
   const query = getQuery({
     ...defaultProductFilters,
+    pagination: {
+      pageSize: 20
+    },
     filters: {
       categories: categoryId,
-      ...selectedFilters
+      ...formattedFilters
     }
   });
 
-  const { data, isLoading } = useFetch(PRODUCTS_URL + query, [categoryId.id], {
+  const { data, isLoading } = useFetch(PRODUCTS_URL + query, [categoryId.id, formattedFilters], {
     staleTime: _10_mins
   });
-  console.log({ query });
+
   return (
     <div className="category-page__container">
       <div className="page__content">
-        <div className="product-filters">
-          <ProductFilters handleClickFilterItem={handleClickFilterItem} />
-        </div>
-
+        <ProductFilters
+          handleClickFilterItem={handleClickFilterItem}
+          selectedFilters={selectedFilters}
+        />
         {isLoading ? <LoaderCircle /> : data && <ProductList productsData={data} />}
       </div>
     </div>
   );
 };
 
-export default Categories;
+export default ProductListByCategories;

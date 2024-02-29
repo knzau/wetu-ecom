@@ -1,8 +1,8 @@
 import About from '../pages/About/About';
-import Categories from '../pages/Categories/Categories';
 import CheckoutPage from '../pages/Checkout/CheckoutPage';
 import Home from '../pages/Home/Home';
 import ProductPage from '../pages/Product/ProductPage';
+import ProductListByCategories from '../pages/ProductListByCategories/ProductListByCategories';
 
 //paths URLs
 export const HOME_PATH = '/';
@@ -32,7 +32,7 @@ export const appRoutes = [
   },
   {
     path: CATEGORIES_PATH,
-    element: <Categories />
+    element: <ProductListByCategories />
   },
   {
     path: PRODUCT_PATH,

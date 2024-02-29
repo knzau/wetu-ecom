@@ -38,7 +38,6 @@ export const debounce = (func, delay) => {
 
 export const PRODUCT_FILTERS = {
   ['color']: ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'],
-  ['size']: ['xl', 'l', 'm', 's', 'xs'],
-  ['brand']: ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike'],
-  ['collection']: ['jackets', 'jeans', 'shirts', 'shoes', 'skirts', 'sweaters', 't-shirts', 'tops']
+  ['material']: ['cotton', 'leather', 'denim', 'linen', 'acrylic', 'wool'],
+  ['type']: ['new arrivals', 'most viewed', 'best sellers', 'specials']
 };
