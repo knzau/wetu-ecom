@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { makeRequest } from '../makeRequests';
+import qs from 'qs';
 
 export const fetchDataFromApi = async (url) => {
   const getCancelSource = axios.CancelToken.source();
@@ -14,5 +15,15 @@ export const fetchDataFromApi = async (url) => {
     }
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const getQuery = (query) => qs.stringify(query, { encodeValuesOnly: true });
+
+export const defaultProductFilters = {
+  populate: '*',
+  filters: {},
+  pagination: {
+    pageSize: 8
   }
 };

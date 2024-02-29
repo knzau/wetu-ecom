@@ -1,34 +1,27 @@
-import React, { useMemo } from 'react';
-import qs from 'qs';
+import React from 'react';
 import TabPane from '../TabsComponent/TabPane';
 import useFetch from '../../hooks/useFetch';
 import ProductList from '../ProductList/ProductList';
 import { PRODUCTS_URL } from '../../utils';
+import { _10_mins } from '../../api/api';
+import { defaultProductFilters, getQuery } from '../../api/services';
 
 const ProductType = ({ productType, categoryId, categoryTitle }) => {
-  const query = useMemo(
-    () =>
-      qs.stringify(
-        {
-          populate: '*',
-          filters: {
-            categories: { id: categoryId },
-            type: {
-              $eq: productType.label
-            }
-          },
-          pagination: {
-            pageSize: 8
-          }
-        },
-        {
-          encodeValuesOnly: true // prettify URL
-        }
-      ),
-    [categoryId, productType.label]
-  );
+  const productTypeFilters = {
+    categories: { id: categoryId },
+    type: {
+      $eq: productType.label
+    }
+  };
 
-  const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId, productType.label]);
+  const query = getQuery({
+    ...defaultProductFilters,
+    filters: productTypeFilters
+  });
+
+  const { data, loading } = useFetch(PRODUCTS_URL + query, [categoryId, productType.label], {
+    staleTime: _10_mins
+  });
 
   return (
     <TabPane title={productType.label} productType={productType.label} key={productType.id}>

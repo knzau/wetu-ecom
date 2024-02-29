@@ -23,3 +23,22 @@ export const getFilterString = (updatedCheckedState, filters) => {
 
   return selectedFilters.length ? selectedFilters.join(',') : '';
 };
+
+export const debounce = (func, delay) => {
+  let timerId;
+  return (...args) => {
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
+
+export const PRODUCT_FILTERS = {
+  ['color']: ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'],
+  ['size']: ['xl', 'l', 'm', 's', 'xs'],
+  ['brand']: ['ck', 'h&m', 'kalles', 'levis', 'monki', 'nike'],
+  ['collection']: ['jackets', 'jeans', 'shirts', 'shoes', 'skirts', 'sweaters', 't-shirts', 'tops']
+};

@@ -20,7 +20,7 @@ const ProductPage = () => {
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`, [id]);
 
   const product = data?.attributes || {};
-  const { image, image2, price, color, size, description, material, reviews, categories } = product;
+  const { image, image2, price, color, size, description, material, reviews } = product;
 
   const productImages = [image, image2];
   const {
@@ -33,7 +33,7 @@ const ProductPage = () => {
   } = useHandleProductActions(productImages);
 
   const cartProduct = { ...product, id: id, qty: 1, selectedSize: selectedSize };
-  console.log({ categories });
+
   const handleAddToCart = useCallback(() => {
     if (!selectedSize.length) {
       setSelectSizeError(true);

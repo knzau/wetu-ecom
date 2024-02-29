@@ -7,12 +7,13 @@ import TuneIcon from '@mui/icons-material/Tune';
 import useToggle from '../../hooks/useToggle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { brandFilters, colorFilters, sizeFilters } from '../../utils';
-import RadioGroup from '../../components/RadioGroup/RadioGroup';
-import { filterPriceOptions, getColorFilterStyles } from './filterUtils';
+// import RadioGroup from '../../components/RadioGroup/RadioGroup';
+import { getColorFilterStyles } from './filterUtils';
 import './Filters.scss';
+import PriceRangeSlider from '../PriceRangeSlider/PriceRangeSlider';
 
 const Filters = ({
-  handlePriceRangeSelect,
+  // handlePriceRangeSelect,
   handleClickFilters,
   checkedSizeFilter,
   checkedBrandFilter
@@ -30,6 +31,10 @@ const Filters = ({
 
   const filterItemClass = (filterId) =>
     filterId === 'size' ? 'filter-item__size filter-item__text' : 'filter-item__text';
+
+  const handlePriceChange = (minPrice) => {
+    console.log(`Selected Min Price: ${minPrice}`);
+  };
 
   return (
     <div className="filters__wrapper">
@@ -110,11 +115,12 @@ const Filters = ({
         </div>
         <div className="filter-item">
           <h2>price</h2>
-          <RadioGroup
+          {/* <RadioGroup
             radioOptions={filterPriceOptions}
             groupClassName="filter-prices"
             handleChange={handlePriceRangeSelect}
-          />
+          /> */}
+          <PriceRangeSlider handlePriceChange={handlePriceChange} />
         </div>
       </div>
     </div>

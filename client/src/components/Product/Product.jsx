@@ -6,13 +6,12 @@ const Product = ({ product, categoryTitle }) => {
   const navigate = useNavigate();
 
   const navigateToProductPage = (productId) => {
-    console.log({ productId });
     navigate(`/categories/${categoryTitle}/product/${productId}`);
   };
 
   const { price, title, image } = product?.attributes || {};
   const imgUrl = image?.data?.attributes?.url || '';
-  console.log({ product });
+
   return (
     <div
       key={product.id}
