@@ -3,18 +3,18 @@ import { useState } from 'react';
 import TabTitle from './TabTitle';
 import './Tabs.scss';
 
-const Tabs = ({ children, defaultTab, categoryTitle }) => {
+const Tabs = ({ children, defaultTab, tabTitle, parentClassName, sectionClassName }) => {
   const [activeTab, setActiveTab] = useState(defaultTab || 0);
 
   return (
-    <div className="category-tabs">
-      <div className="category-titles_section">
-        <h3 key={categoryTitle}>{categoryTitle}</h3>
+    <div className={parentClassName}>
+      <div className={sectionClassName}>
+        <h3 key={tabTitle}>{tabTitle}</h3>
         <ul>
           {children.map((tabItem, index) => (
             <TabTitle
               key={tabItem.key}
-              title={tabItem.props.productType.label}
+              title={tabItem.props.label}
               index={index}
               isActive={index === activeTab}
               setActiveTab={setActiveTab}

@@ -12,6 +12,7 @@ import { SocialMediaIcons } from '../utils';
 import Cart from '../Cart/Cart';
 import './Navbar.scss';
 import LoaderLine from '../LoaderLine/LoaderLine';
+import { SIGN_IN_PATH } from '../../api/api';
 
 const Navbar = () => {
   const { handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
@@ -25,11 +26,11 @@ const Navbar = () => {
         <div className="top-bar__right">
           <div className="top-bar__item">
             <PhoneIcon />
-            <span>+38 (050) 12 34 567</span>
+            <span>+55 (111) 12 34 567890</span>
           </div>
           <div className="top-bar__item">
             <LocationOnIcon />
-            <span>Ukraine, Kyiv,Khreshchatyk 1</span>
+            <span>Florianopolis, Santa Catarina, Brazil</span>
           </div>
           <div className="top-bar__item">
             <WatchLaterIcon />
@@ -77,7 +78,9 @@ const Navbar = () => {
           </div>
 
           <div className="item">
-            <PersonOutlineOutlinedIcon />
+            <Link className="link" to={SIGN_IN_PATH}>
+              <PersonOutlineOutlinedIcon />
+            </Link>
           </div>
           <div className="item cart-icon" onClick={handleShowHideCart}>
             <LocalMallOutlinedIcon />

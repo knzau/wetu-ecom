@@ -3,6 +3,8 @@ import CheckoutPage from '../pages/Checkout/CheckoutPage';
 import Home from '../pages/Home/Home';
 import ProductPage from '../pages/Product/ProductPage';
 import ProductListByCategories from '../pages/ProductListByCategories/ProductListByCategories';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import SignInSignOutPage from '../pages/SignInSignOut/SignInSignOutPage';
 
 //paths URLs
 export const HOME_PATH = '/';
@@ -45,5 +47,13 @@ export const appRoutes = [
   {
     path: ABOUT_PATH,
     element: <About />
+  },
+  {
+    path: SIGN_IN_PATH,
+    element: <SignInSignOutPage />
+  },
+  {
+    path: PROFILE_PATH,
+    element: <ProfilePage />
   }
 ];

@@ -4,10 +4,15 @@ import { makeRequest } from '../../makeRequests';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import CustomButton from '../Button/CustomButton';
+import { useUser, useClerk } from '@clerk/clerk-react';
 import './Cart.scss';
 
 const Cart = () => {
   const { cartProducts, totalPrice, showCart } = useStoreState((state) => state.cartModel);
+  const user = useUser();
+  const { id } = user?.user || {};
+  const clerk = useClerk();
+  console.log({ user });
 
   const { increment, decrement, removeItem, handleShowHideCart, resetCart } = useStoreActions(
     (actions) => actions.cartModel
@@ -24,14 +29,18 @@ const Cart = () => {
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
   const handlePayment = async () => {
+    if (!user?.isSignedIn) {
+      clerk.redirectToSignIn();
+    }
     try {
       const stripe = await stripePromise;
 
-      const res = await makeRequest.post('/orders', { products: cartProducts });
+      const res = await makeRequest.post('/orders', { products: cartProducts, userId: id });
 
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id
       });
+      console.log({ res });
       res && res.data && resetCart();
       !!showCart && handleShowHideCart();
     } catch (error) {

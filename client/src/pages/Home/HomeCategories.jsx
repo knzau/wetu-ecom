@@ -13,10 +13,15 @@ const HomeTabsCategories = ({ defaultTab, categoryData, categoryId }) => {
 
   return (
     <div className="home-categories__wrapper">
-      <Tabs defaultTab={defaultTab} categoryTitle={categoryData?.title || ''}>
+      <Tabs
+        defaultTab={defaultTab}
+        tabTitle={categoryData?.title || ''}
+        parentClassName="category-tabs"
+        tabSectionClassName="category-titles_section">
         {productTypes.map((productType) => (
           <ProductType
             productType={productType}
+            label={productType.label}
             key={productType.id}
             categoryId={categoryId}
             categoryTitle={categoryData?.title}
