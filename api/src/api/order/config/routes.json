@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/orders/:userId/products",
+      "handler": "orders.findProductsByUser",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
