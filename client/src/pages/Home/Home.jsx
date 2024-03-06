@@ -6,12 +6,20 @@ import HeroContainer from './HeroContainer';
 import DiscountSection from './DiscountSection';
 import SubscribeSection from './SubscribeSection';
 import { CATEGORIES_URL } from '../../utils';
-import './Home.scss';
 import { HOME_CATEGORIES, _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
+import { getQuery } from '../../api/services';
+import './Home.scss';
 
 const Home = () => {
-  const { data, isLoading } = useFetch(CATEGORIES_URL, [HOME_CATEGORIES], {
+  const query = getQuery(
+    { populate: ['title', 'description', 'image'] },
+    {
+      encodeValuesOnly: true
+    }
+  );
+
+  const { data, isLoading } = useFetch(CATEGORIES_URL + query, [HOME_CATEGORIES], {
     staleTime: _10_mins
   });
 

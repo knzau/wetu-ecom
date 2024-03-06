@@ -27,10 +27,6 @@
       display: flex;
       overflow: hidden;
       position: relative;
-
-      &:not(:last-child) {
-        gap: 25px;
-      }
     }
 
     .hero-category__top {

@@ -4,6 +4,7 @@ import Tabs from '../../components/TabsComponent/Tabs';
 import CustomButton from '../../components/Button/CustomButton';
 import ProductType from '../../components/ProductType/ProductType';
 import { productTypes } from './HomeUtils';
+import './../../components/TabsComponent/Tabs.scss';
 
 const HomeTabsCategories = ({ defaultTab, categoryData, categoryId }) => {
   const navigate = useNavigate();

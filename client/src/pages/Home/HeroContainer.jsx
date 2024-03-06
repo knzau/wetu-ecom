@@ -66,10 +66,8 @@ const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {
         </div>
         <div className="col-lg category-el__wrapper">
           <div className="hero-category__top">
-            {' '}
             <TopCategoryHeroEl />
           </div>
-
           <BottomCategoryHeroEl />
         </div>
       </div>

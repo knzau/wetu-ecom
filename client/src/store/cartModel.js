@@ -39,7 +39,7 @@ const cartModel = {
   resetCart: action((state) => {
     state.cartProducts = [];
   }),
-  handleShowHideCart: action((state) => {
+  toggleCartOpen: action((state) => {
     state.showCart = !state.showCart;
   })
 };
