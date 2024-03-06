@@ -14,7 +14,7 @@ import './ProductPage.scss';
 const ProductPage = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const { showCart } = useStoreState((state) => state.cartModel);
-  const { addToCart, handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
+  const { addToCart, toggleCartOpen } = useStoreActions((actions) => actions.cartModel);
   const { id } = useParams();
 
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`, [id]);
@@ -39,7 +39,7 @@ const ProductPage = () => {
       setSelectSizeError(true);
     } else {
       addToCart({ ...cartProduct });
-      !showCart && handleShowHideCart();
+      !showCart && toggleCartOpen();
     }
   }, [selectedSize]);
 

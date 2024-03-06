@@ -1,9 +1,9 @@
 {
   "routes": [
     {
-      "method": "GET",
-      "path": "/orders/:userId/products",
-      "handler": "orders.findProductsByUser",
+      "method": "POST",
+      "path": "/order/create",
+      "handler": "order.create",
       "config": {
         "policies": []
       }

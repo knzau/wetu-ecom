@@ -17,12 +17,6 @@
     },
     "products": {
       "type": "json"
-    },
-    "buyer": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::buyer.buyer",
-      "inversedBy": "orders"
     }
   }
 }

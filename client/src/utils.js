@@ -1,7 +1,8 @@
 export const BASE_URL = process.env.REACT_APP_API_URL;
 
-export const CATEGORIES_URL = '/categories';
+export const CATEGORIES_URL = '/categories?&';
 export const PRODUCTS_URL = '/products?&';
+export const CUSTOMERS_URL = '/customers?populate=*';
 
 export const DEFAULT_CURRENCY = 'usd';
 export const CURRENCIES = ['usd', 'euro', 'pound'];

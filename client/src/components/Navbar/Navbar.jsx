@@ -15,7 +15,7 @@ import LoaderLine from '../LoaderLine/LoaderLine';
 import { SIGN_IN_PATH } from '../../api/api';
 
 const Navbar = () => {
-  const { handleShowHideCart } = useStoreActions((actions) => actions.cartModel);
+  const { toggleCartOpen } = useStoreActions((actions) => actions.cartModel);
   const { totalCartItems } = useStoreState((state) => state.cartModel);
   const showCart = useStoreState((state) => state.cartModel.showCart);
   const { isLoading } = useStoreState((state) => state.loadingModel);
@@ -82,7 +82,7 @@ const Navbar = () => {
               <PersonOutlineOutlinedIcon />
             </Link>
           </div>
-          <div className="item cart-icon" onClick={handleShowHideCart}>
+          <div className="item cart-icon" onClick={toggleCartOpen}>
             <LocalMallOutlinedIcon />
             <span>{totalCartItems || 0}</span>
           </div>

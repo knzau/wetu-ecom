@@ -10,6 +10,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     const { products, userId } = ctx.request.body;
     console.log(ctx.request.body);
+
     try {
       const lineItems = await Promise.all(
         products.map(async (product) => {
@@ -43,7 +44,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         data: {
           products: JSON.stringify(products),
           stripeId: session.id,
-          buyer: { userId: userId },
+          Customer: userId,
         },
       });
 
@@ -51,26 +52,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     } catch (error) {
       ctx.response.status = 500;
       return { error };
-    }
-  },
-  async findProductsByUser(ctx) {
-    try {
-      // Get the user ID from the request parameters or authentication
-      const { userId } = ctx.params;
-      console.log({ userId });
-      // Fetch orders and populate products
-      const orders = await strapi.services.order.find({
-        userId: userId,
-      });
-      console.log({ orders });
-      // Extract and flatten product data from orders
-      const products = orders.flatMap((order) => order.products);
-
-      ctx.send(products);
-    } catch (error) {
-      console.error(error);
-      ctx.response.status = 500;
-      ctx.send({ error: "Internal Server Error" });
     }
   },
 }));

@@ -1,20 +1,19 @@
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { makeRequest } from '../../makeRequests';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import CustomButton from '../Button/CustomButton';
 import { useUser, useClerk } from '@clerk/clerk-react';
 import './Cart.scss';
+import CartProduct from './CartProduct';
 
 const Cart = () => {
   const { cartProducts, totalPrice, showCart } = useStoreState((state) => state.cartModel);
   const user = useUser();
-  const { id } = user?.user || {};
+  const { id, fullName, emailAddresses } = user?.user || {};
   const clerk = useClerk();
-  console.log({ user });
 
-  const { increment, decrement, removeItem, handleShowHideCart, resetCart } = useStoreActions(
+  const { increment, decrement, removeItem, toggleCartOpen, resetCart } = useStoreActions(
     (actions) => actions.cartModel
   );
 
@@ -34,15 +33,27 @@ const Cart = () => {
     }
     try {
       const stripe = await stripePromise;
-
-      const res = await makeRequest.post('/orders', { products: cartProducts, userId: id });
-
-      await stripe.redirectToCheckout({
-        sessionId: res.data.stripeSession.id
+      await makeRequest.post('/customers', {
+        customerId: id,
+        customerName: fullName,
+        customerEmail: emailAddresses[0].emailAddress,
+        customerProducts: cartProducts
       });
-      console.log({ res });
-      res && res.data && resetCart();
-      !!showCart && handleShowHideCart();
+
+      const res = await makeRequest.post('/orders', {
+        products: cartProducts,
+        userId: crypto.randomUUID()
+      });
+
+      await stripe
+        .redirectToCheckout({
+          sessionId: res.data.stripeSession.id
+        })
+        .then(() => {
+          resetCart();
+        });
+
+      !!showCart && toggleCartOpen();
     } catch (error) {
       console.error(error);
     }
@@ -50,49 +61,18 @@ const Cart = () => {
 
   return cartProducts.length ? (
     <div className="cart">
-      <span className="closeBtn" onClick={handleShowHideCart}>
+      <span className="closeBtn" onClick={toggleCartOpen}>
         &#x2715;
       </span>
       <span className="cart-title">Shopping Cart</span>
       {cartProducts.map((cartProduct) => (
-        <div className="cart-product" key={cartProduct.id}>
-          <div className="cart-product__img-wrapper">
-            <img src={cartProduct.image.data.attributes.url} alt="product-img" />
-          </div>
-          <div className="cart-product__info">
-            <div className="cart-product__info-top">
-              <div className="cart-product__info-top-right">
-                <h2>{cartProduct.title}</h2>
-                <p className="cart-product__price">
-                  <span>{cartProduct.qty} x </span>${cartProduct.price}
-                </p>
-              </div>
-              <DeleteIcon onClick={() => removeItem(cartProduct)} className="cart__delete-btn" />
-            </div>
-
-            <div className="cart-product__info-bottom">
-              <div className="cart-product__info-attributes">
-                <p>
-                  Color: <span>{cartProduct.color}</span>
-                </p>
-                <p>
-                  Size: <span className="uppercase">{cartProduct.selectedSize}</span>{' '}
-                </p>
-              </div>
-              <div className="cart-product__info-btns">
-                <span
-                  className="cart-product__qty-change"
-                  onClick={() => handleDecrement(cartProduct)}>
-                  &#8722;
-                </span>
-                <span>{cartProduct.qty}</span>
-                <span className="cart-product__qty-change" onClick={() => increment(cartProduct)}>
-                  &#43;
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CartProduct
+          key={cartProduct.id}
+          cartProduct={cartProduct}
+          removeItem={removeItem}
+          handleDecrement={handleDecrement}
+          increment={increment}
+        />
       ))}
       <div className="cart-checkout">
         <div className="cart-total">
@@ -106,7 +86,7 @@ const Cart = () => {
     </div>
   ) : (
     <div className="center-items cart">
-      <span className="closeBtn" onClick={handleShowHideCart}>
+      <span className="closeBtn" onClick={toggleCartOpen}>
         &#x2715;
       </span>
       <h2>Shopping Cart is Empty</h2>

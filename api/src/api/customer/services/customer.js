@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * buyer service
+ * customer service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::buyer.buyer');
+module.exports = createCoreService('api::customer.customer');

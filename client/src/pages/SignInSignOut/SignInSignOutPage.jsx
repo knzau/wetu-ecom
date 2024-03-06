@@ -1,5 +1,6 @@
-import React from 'react';
-import { SignIn, SignedOut } from '@clerk/clerk-react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SignIn, SignedOut, useUser } from '@clerk/clerk-react';
 
 import './SignInSignOutPage.scss';
 
@@ -7,6 +8,20 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import { PROFILE_PATH, SIGN_IN_PATH } from '../../api/api';
 
 const SignInSignOutPage = () => {
+  const user = useUser();
+  const navigate = useNavigate();
+
+  const navigateToProfile = () => {
+    navigate(PROFILE_PATH);
+  };
+
+  useEffect(() => {
+    if (user?.isSignedIn) {
+      navigateToProfile();
+      return;
+    }
+  }, [user, navigateToProfile]);
+
   return (
     <div className="signin__container">
       <div className="signin-image">

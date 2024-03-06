@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customerId": {
+      "type": "string"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "customerEmail": {
+      "type": "string"
+    },
+    "customerProducts": {
+      "type": "json"
+    },
+    "purchased_at": {
+      "type": "datetime"
+    }
+  }
+}
