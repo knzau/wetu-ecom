@@ -2,13 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
 import useFetch from '../../hooks/useFetch';
-import { PRODUCTS_URL } from '../../utils';
 import { _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
 import './ProductListByCategories.scss';
 import { defaultProductFilters, getQuery } from '../../api/services';
 import ProductFilters from '../../components/ProductFilters/ProductFilters';
 import useHandleProductFilters from '../../components/ProductFilters/useHandleProductFilters';
+import { PRODUCTS_URL } from '../../components/constant';
 
 const ProductListByCategories = () => {
   const categoryId = useParams();

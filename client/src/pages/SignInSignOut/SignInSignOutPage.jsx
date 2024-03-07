@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SignIn, SignedOut, useUser } from '@clerk/clerk-react';
-
-import './SignInSignOutPage.scss';
-
-import ProfilePage from '../ProfilePage/ProfilePage';
+import { SignIn, useUser } from '@clerk/clerk-react';
 import { PROFILE_PATH, SIGN_IN_PATH } from '../../api/api';
+import './SignInSignOutPage.scss';
 
 const SignInSignOutPage = () => {
   const user = useUser();
@@ -31,10 +28,7 @@ const SignInSignOutPage = () => {
         />
       </div>
       <div>
-        <SignIn path={SIGN_IN_PATH} routing="path">
-          <ProfilePage />
-        </SignIn>
-        <SignedOut redirectUrl={PROFILE_PATH} />
+        <SignIn path={SIGN_IN_PATH} redirectUrl={PROFILE_PATH} />
       </div>
     </div>
   );

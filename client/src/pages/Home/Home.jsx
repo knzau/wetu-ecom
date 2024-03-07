@@ -5,10 +5,10 @@ import HomeTabsCategories from './HomeCategories';
 import HeroContainer from './HeroContainer';
 import DiscountSection from './DiscountSection';
 import SubscribeSection from './SubscribeSection';
-import { CATEGORIES_URL } from '../../utils';
 import { HOME_CATEGORIES, _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
 import { getQuery } from '../../api/services';
+import { CATEGORIES_URL } from '../../components/constant';
 import './Home.scss';
 
 const Home = () => {

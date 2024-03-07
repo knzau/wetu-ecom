@@ -2,9 +2,9 @@ import React from 'react';
 import TabPane from '../TabsComponent/TabPane';
 import useFetch from '../../hooks/useFetch';
 import ProductList from '../ProductList/ProductList';
-import { PRODUCTS_URL } from '../../utils';
 import { _10_mins } from '../../api/api';
 import { defaultProductFilters, getQuery } from '../../api/services';
+import { PRODUCTS_URL } from '../constant';
 
 const ProductType = ({ productType, categoryId, categoryTitle }) => {
   const productTypeFilters = {
