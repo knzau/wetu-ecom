@@ -46,3 +46,51 @@ export const setToken = (token) => {
 export const removeToken = () => {
   localStorage.removeItem(AUTH_TOKEN);
 };
+
+export const mapProductData = (productData) => {
+  const {
+    title,
+    description,
+    price,
+    color,
+    material,
+    size,
+    isNew,
+    type,
+    image,
+    image2,
+    categories,
+    reviews
+  } = productData?.attributes || {};
+  const imageUrl1 = image?.data?.attributes?.url || '';
+  const imageUrl2 = image2?.data?.attributes?.url || '';
+
+  return {
+    title,
+    description,
+    price,
+    color,
+    material,
+    size,
+    isNew,
+    type,
+    imageUrl1,
+    imageUrl2,
+    reviews,
+    categoryTitle: categories?.data?.map((category) => category.attributes.title)[0]
+  };
+};
+
+export const formatSelectedFilters = (selectedFilters) => {
+  return selectedFilters.reduce((acc, filter) => {
+    const filterType = Object.keys(filter)[0];
+    return { ...acc, [filterType]: { $in: filter[filterType] } };
+  }, {});
+};
+
+export const getProductSize = (size) => {
+  if (typeof size === 'string' && size.includes(',') && size.length > 1) {
+    return size.split(',').join(', ');
+  }
+  return '';
+};
