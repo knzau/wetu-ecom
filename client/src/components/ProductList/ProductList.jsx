@@ -2,21 +2,12 @@ import React from 'react';
 import Product from '../Product/Product';
 import './ProductList.scss';
 
-const ProductList = ({ productsData, categoryId = '', categoryTitle = '' }) => {
+const ProductList = ({ productsData }) => {
   return (
     <div className="product-list__wrapper">
-      {productsData
+      {productsData.length > 0
         ? productsData.map((product) => (
-            <Product
-              product={product}
-              key={product.id}
-              categoryId={categoryId ? categoryId : product?.attributes?.categories?.data[0]?.id}
-              categoryTitle={
-                categoryTitle
-                  ? categoryTitle
-                  : product?.attributes?.categories?.data[0]?.attributes?.title
-              }
-            />
+            <Product product={product} productId={product.id} key={product.id} />
           ))
         : ''}
     </div>

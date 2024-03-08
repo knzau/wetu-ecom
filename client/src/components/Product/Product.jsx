@@ -1,24 +1,24 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { mapProductData } from '../../utils';
 import './Product.scss';
 
-const Product = ({ product, categoryTitle }) => {
+const Product = ({ product, productId }) => {
+  const productInfo = mapProductData(product);
   const navigate = useNavigate();
+  const { title, imageUrl1, price, categoryTitle } = productInfo;
 
   const navigateToProductPage = (productId) => {
     navigate(`/categories/${categoryTitle}/product/${productId}`);
   };
 
-  const { price, title, image } = product?.attributes || {};
-  const imgUrl = image?.data?.attributes?.url || '';
-
   return (
     <div
-      key={product.id}
+      key={productId}
       className="product__wrapper"
-      onClick={() => navigateToProductPage(product.id)}>
+      onClick={() => navigateToProductPage(productId)}>
       <div className="product__image-wrapper">
-        <img src={imgUrl} alt={''} />
+        <img src={imageUrl1} alt={''} />
       </div>
 
       <span className="product__label">{title}</span>
