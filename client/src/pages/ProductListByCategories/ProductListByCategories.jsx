@@ -8,14 +8,15 @@ import './ProductListByCategories.scss';
 import { defaultProductFilters, getQuery } from '../../api/services';
 import ProductFilters from '../../components/ProductFilters/ProductFilters';
 import useHandleProductFilters from '../../components/ProductFilters/useHandleProductFilters';
-import { PRODUCTS_URL } from '../../components/constant';
+import { PRODUCTS_URL, mapCategoryById } from '../../components/constant';
 import { formatSelectedFilters } from '../../utils';
 
 const ProductListByCategories = () => {
-  const categoryId = useParams();
+  const pageId = useParams();
   const { handleClickFilterItem, selectedFilters } = useHandleProductFilters();
 
   const formattedFilters = formatSelectedFilters(selectedFilters);
+  const categoryId = mapCategoryById[pageId.id];
 
   const query = getQuery({
     ...defaultProductFilters,
@@ -28,7 +29,7 @@ const ProductListByCategories = () => {
     }
   });
 
-  const { data, isLoading } = useFetch(PRODUCTS_URL + query, [categoryId.id, formattedFilters], {
+  const { data, isLoading } = useFetch(PRODUCTS_URL + query, [categoryId, formattedFilters], {
     staleTime: _10_mins
   });
 

@@ -13,6 +13,7 @@ import Cart from '../Cart/Cart';
 import './Navbar.scss';
 import LoaderLine from '../LoaderLine/LoaderLine';
 import { SIGN_IN_PATH } from '../../api/api';
+import { ACCESSORIES_CATEGORY, MEN_CATEGORY, WOMEN_CATEGORY } from '../constant';
 
 const Navbar = () => {
   const { toggleCartOpen } = useStoreActions((actions) => actions.cartModel);
@@ -52,17 +53,17 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/categories/1">
+            <Link className="link" to={WOMEN_CATEGORY}>
               Women
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/categories/2">
+            <Link className="link" to={MEN_CATEGORY}>
               Men
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/categories/accessories">
+            <Link className="link" to={ACCESSORIES_CATEGORY}>
               Accessories
             </Link>
           </div>
