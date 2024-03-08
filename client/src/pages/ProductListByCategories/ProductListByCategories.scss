@@ -1,22 +1,23 @@
+@import '../../scss/abstracts/variables';
 .category-page__container {
   width: 100%;
   .category-nav {
     display: flex;
     align-items: center;
     text-transform: capitalize;
-    background-color: #f8f8f8;
+    background-color: $color-grey-light-2;
     height: 32px;
     display: flex;
     align-items: center;
   }
 
   .inactive {
-    color: #121212;
+    color: $color-primary;
     opacity: 0.6;
   }
 
   .active {
-    color: #121212;
+    color: $color-primary;
   }
 }
 

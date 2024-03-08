@@ -1,3 +1,5 @@
+@import '../../scss/abstracts/variables';
+
 .profile-banner {
   background-image: url('https://res.cloudinary.com/dwtaiai3t/image/upload/v1709597877/pexels-ksenia-chernaya-3965548_mcob0a.jpg');
   padding: 30px 50px;
@@ -29,7 +31,7 @@
 
     &:hover {
       background-color: rgba(18, 18, 18, 0.8);
-      color: #e0e0e0;
+      color: $color-grey-light-2;
     }
   }
 }
@@ -57,20 +59,20 @@
       text-transform: capitalize;
       font-size: 14px;
       letter-spacing: 1px;
-      color: #121212;
+      color: $color-primary;
 
       li {
         cursor: pointer;
 
         &:hover {
-          color: #e0e0e0;
+          color: $color-grey-light-2;
         }
       }
     }
   }
   & .active-tab {
-    color: #757575;
-    border-bottom: 2px solid #757575;
+    color: $color-grey-dark-1;
+    border-bottom: 2px solid $color-grey-dark-1;
     padding-bottom: 5px;
     width: max-content;
   }
@@ -78,7 +80,7 @@
 
 .my-orders-container {
   width: 50%;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $color-grey-light-2;
   padding: 30px;
 
   h3 {
@@ -92,7 +94,7 @@
     display: flex;
     justify-content: space-between;
     padding: 16px 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $color-grey-light-2;
     align-items: center;
 
     .cart-product__img-wrapper {

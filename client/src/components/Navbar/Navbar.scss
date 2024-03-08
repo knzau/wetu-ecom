@@ -1,3 +1,5 @@
+@import '../../scss/abstracts/variables';
+
 .navbar__container {
   position: sticky;
   top: 0;
@@ -14,7 +16,7 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: #121212;
+    color: $color-primary;
     font-weight: normal;
 
     &:hover {
@@ -37,7 +39,7 @@
     .item {
       display: flex;
       gap: 15px;
-      color: #121212;
+      color: $color-primary;
     }
   }
 }
@@ -51,7 +53,7 @@
     bottom: 10px;
     left: 12px;
     font-size: 12px;
-    background-color: #121212;
+    background-color: $color-primary;
     padding: 1px;
     border-radius: 100%;
     border: 2px solid #ff ffff;
@@ -72,7 +74,7 @@
   left: 0;
   display: flex;
   justify-content: space-between;
-  background-color: #121212;
+  background-color: $color-primary;
   width: 100%;
   padding: 5px 4rem;
 
@@ -121,5 +123,5 @@
   cursor: pointer;
   line-height: 1.1;
   background-color: #fff;
-  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  background-image: linear-gradient(to top, $color-grey-light-1, #fff 33%);
 }

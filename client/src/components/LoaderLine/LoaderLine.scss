@@ -1,3 +1,4 @@
+@import '../../scss/abstracts/variables';
 .loader {
   background-color: white;
   overflow: hidden;
@@ -16,13 +17,13 @@
 .loader__element {
   height: 3px;
   width: 100%;
-  background: #efeff4;
+  background: $color-grey-light-2;
 }
 
 .loader__element:before {
   content: '';
   display: block;
-  background-color: #3f3f3f;
+  background-color: $color-grey-dark-1;
   height: 3px;
   width: 0;
   animation: getWidth 3s ease-in infinite;

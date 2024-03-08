@@ -1,3 +1,4 @@
+@import '../../scss/abstracts/variables';
 .category-tabs {
   display: flex;
   flex-direction: column;
@@ -10,7 +11,7 @@
 
     h3 {
       font-size: 22px;
-      color: #121212;
+      color: $color-primary;
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -25,13 +26,13 @@
   .category_tab-title {
     list-style: none;
     cursor: pointer;
-    color: #d1d1d1;
+    color: $color-grey-light-3;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
   }
   .active-tab {
-    color: #121212;
-    border-bottom: 2px solid #121212;
+    color: $color-primary;
+    border-bottom: 2px solid $color-primary;
   }
 }

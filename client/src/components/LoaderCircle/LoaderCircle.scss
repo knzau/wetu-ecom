@@ -1,3 +1,5 @@
+@import '../../scss/abstracts/variables';
+
 .loader-container {
   display: flex;
   justify-content: center;
@@ -10,8 +12,8 @@
   height: 50px;
   border-radius: 50%;
   border: 8px solid;
-  border-color: #e4e4ed;
-  border-right-color: #3f3f3f;
+  border-color: $color-grey-light-2;
+  border-right-color: $color-grey-dark-1;
   animation: s2 1s infinite linear;
 }
 @keyframes s2 {

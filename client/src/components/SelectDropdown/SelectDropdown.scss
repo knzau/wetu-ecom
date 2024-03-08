@@ -29,7 +29,7 @@ select::-ms-expand {
   cursor: pointer;
   line-height: 1.1;
   background-color: #fff;
-  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  background-image: linear-gradient(to top, $color-grey-light-2, #fff 33%);
   grid-template-areas: 'select';
   align-items: center;
 }
@@ -38,7 +38,7 @@ select::-ms-expand {
   content: '';
   width: 8px;
   height: 5px;
-  background-color: #aaa;
+  background-color: $color-grey-light-3;
   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   justify-self: end;
 }

@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .bread-crumb {
   width: 100%;
   display: flex;
@@ -22,11 +24,11 @@
 }
 
 .active {
-  color: #121212;
+  color: $color-primary;
 }
 
 .inactive {
-  color: #121212;
+  color: $color-primary;
   opacity: 0.6;
 }
 

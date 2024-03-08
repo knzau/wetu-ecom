@@ -1,3 +1,4 @@
+@import '../../scss/abstracts/variables';
 .home {
   padding: 0 5rem;
 
@@ -81,11 +82,11 @@
         transform: translateY(-50%);
         width: 40px;
         height: 40px;
-        background-color: #f8f8f8;
+        background-color: $color-grey-light-2;
         border-radius: 50%;
         display: grid;
         place-items: center;
-        color: #121212;
+        color: $color-primary;
         cursor: pointer;
         svg {
           height: 14px;
@@ -138,100 +139,4 @@
       }
     }
   }
-
-  .subscribe-section {
-    display: flex;
-    height: 580px;
-    background: linear-gradient(180deg, #f3f2f2 0%, #dcdbdb 100%);
-    position: relative;
-
-    .subscribe-section__img {
-      position: absolute;
-      z-index: 30;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    .img-left {
-      bottom: -43px;
-      left: 162px;
-    }
-
-    .img-right {
-      bottom: 0px;
-      right: 162px;
-    }
-  }
-
-  .subscribe-section__form {
-    position: absolute;
-    background: #ffffff;
-    border-radius: 4px;
-    width: 530px;
-    height: 460px;
-    left: 50%;
-    top: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 32px;
-    transform: translate(-50%, -50%);
-
-    .subscribe-section__text {
-      p {
-        font-size: 12px;
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        color: #121212;
-        opacity: 0.4;
-        text-align: center;
-      }
-
-      h3 {
-        font-size: 26px;
-        line-height: 36px;
-        text-align: center;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        padding: 16px 0;
-      }
-    }
-
-    #subscribe__email {
-      background: #f8f8f8;
-      outline: none;
-      height: 64px;
-      width: 340px;
-      border: none;
-      font-size: 18px;
-
-      &::placeholder {
-        font-size: 18px;
-        text-transform: capitalize;
-        text-align: center;
-        color: #121212;
-        opacity: 0.4;
-      }
-    }
-
-    .subscribe-btn {
-      height: 64px;
-      width: 340px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 16px;
-      color: #ffffff;
-      opacity: 0.9;
-      cursor: pointer;
-    }
-  }
-}
-
-.red-text {
-  color: #e91e63;
 }

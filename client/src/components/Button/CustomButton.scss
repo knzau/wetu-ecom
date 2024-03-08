@@ -1,14 +1,16 @@
+@import '../../scss/abstracts/variables';
+
 .primary-btn {
   outline: none;
   border: none;
   color: #fff;
-  background-color: #121212;
-  border: 1px solid #121212;
+  background-color: $color-primary;
+  border: 1px solid $color-primary;
 
   &:hover {
     background-color: #fafafa;
-    color: #121212;
-    border: 1px solid #121212;
+    color: $color-primary;
+    border: 1px solid $color-primary;
   }
 }
 
@@ -16,7 +18,7 @@
   outline: none;
   border: 1px solid #cccccc;
   color: #cccccc;
-  background-color: #121212;
+  background-color: $color-primary;
   cursor: pointer;
   text-transform: uppercase;
   font-size: 12px;
@@ -25,8 +27,8 @@
 
   &:hover {
     background-color: #cccccc;
-    color: #121212;
-    border: 1px solid #121212;
+    color: $color-primary;
+    border: 1px solid $color-primary;
   }
 }
 
@@ -40,7 +42,7 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: #121212;
+  color: $color-primary;
   opacity: 0.8;
   cursor: pointer;
 }
@@ -58,7 +60,7 @@
   font-weight: 600;
   text-transform: uppercase;
   font-size: 14px;
-  color: #121212;
+  color: $color-primary;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,4 +87,5 @@
   font-weight: 500;
   min-width: 156px;
   cursor: pointer;
+  background-color: var('--color-primary');
 }
