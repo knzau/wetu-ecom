@@ -66,11 +66,6 @@ const Navbar = () => {
               Accessories
             </Link>
           </div>
-          <div className="item">
-            <Link className="link" to="/contact">
-              Contact
-            </Link>
-          </div>
         </div>
         <div className="right">
           <div className="item">

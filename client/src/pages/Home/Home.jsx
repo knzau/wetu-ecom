@@ -3,8 +3,6 @@ import useFetch from '../../hooks/useFetch';
 import { HeroBannerContent } from '../../mockData';
 import HomeTabsCategories from './HomeCategories';
 import HeroContainer from './HeroContainer';
-import DiscountSection from './DiscountSection';
-import SubscribeSection from './SubscribeSection';
 import { HOME_CATEGORIES, _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
 import { getQuery } from '../../api/services';
@@ -51,9 +49,6 @@ const Home = () => {
           />
         ))
       )}
-
-      <DiscountSection />
-      <SubscribeSection />
     </div>
   );
 };
