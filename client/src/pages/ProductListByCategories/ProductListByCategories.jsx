@@ -9,15 +9,13 @@ import { defaultProductFilters, getQuery } from '../../api/services';
 import ProductFilters from '../../components/ProductFilters/ProductFilters';
 import useHandleProductFilters from '../../components/ProductFilters/useHandleProductFilters';
 import { PRODUCTS_URL } from '../../components/constant';
+import { formatSelectedFilters } from '../../utils';
 
 const ProductListByCategories = () => {
   const categoryId = useParams();
   const { handleClickFilterItem, selectedFilters } = useHandleProductFilters();
 
-  const formattedFilters = selectedFilters.reduce((acc, filter) => {
-    const filterType = Object.keys(filter)[0];
-    return { ...acc, [filterType]: { $in: filter[filterType] } };
-  }, {});
+  const formattedFilters = formatSelectedFilters(selectedFilters);
 
   const query = getQuery({
     ...defaultProductFilters,
@@ -41,7 +39,11 @@ const ProductListByCategories = () => {
           handleClickFilterItem={handleClickFilterItem}
           selectedFilters={selectedFilters}
         />
-        {isLoading ? <LoaderCircle /> : data && <ProductList productsData={data} />}
+        {isLoading ? (
+          <LoaderCircle />
+        ) : (
+          data && <ProductList categoryId={categoryId} productsData={data} />
+        )}
       </div>
     </div>
   );
