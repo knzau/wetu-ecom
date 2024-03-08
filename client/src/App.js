@@ -4,7 +4,7 @@ import { useStoreRehydrated } from 'easy-peasy';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import { appRoutes } from './api/api';
-import './app.scss';
+import './scss/main.scss';
 
 const PUBLISHABLE_KEY = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 
