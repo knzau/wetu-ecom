@@ -8,11 +8,11 @@ const CartProduct = ({
   increment,
   isProfileOrder = false
 }) => {
-  console.log({ cartProduct });
+  const { qty, price, title, color, selectedSize, id } = cartProduct;
+  const totalPrice = parseFloat(qty) * parseFloat(price);
 
-  const totalPrice = parseFloat(cartProduct.qty) * parseFloat(cartProduct.price);
   return (
-    <div className="cart-product" key={cartProduct.id}>
+    <div className="cart-product" key={id}>
       <div className="cart-product__img-wrapper">
         <img src={cartProduct.image.data.attributes.url} alt="product-img" />
       </div>
@@ -20,9 +20,9 @@ const CartProduct = ({
         {!isProfileOrder && (
           <div className="cart-product__info-top">
             <div className="cart-product__info-top-right">
-              <h2>{cartProduct.title}</h2>
+              <h2>{title}</h2>
               <p className="cart-product__price">
-                <span>{cartProduct.qty} x </span>${cartProduct.price}
+                <span>{qty} x </span>${price}
               </p>
             </div>
 
@@ -31,17 +31,17 @@ const CartProduct = ({
         )}
         {isProfileOrder && (
           <p className="my-order__price">
-            <span>Price per item: </span>${cartProduct.price}
+            <span>Price per item: </span>${price}
           </p>
         )}
 
         <div className="cart-product__info-bottom">
           <div className="cart-product__info-attributes">
             <p>
-              Color: <span>{cartProduct.color}</span>
+              Color: <span>{color}</span>
             </p>
             <p>
-              Size: <span className="uppercase">{cartProduct.selectedSize}</span>{' '}
+              Size: <span className="uppercase">{selectedSize}</span>{' '}
             </p>
           </div>
           {!isProfileOrder && (
@@ -51,7 +51,7 @@ const CartProduct = ({
                 onClick={() => handleDecrement(cartProduct)}>
                 &#8722;
               </span>
-              <span>{cartProduct.qty}</span>
+              <span>{qty}</span>
               <span className="cart-product__qty-change" onClick={() => increment(cartProduct)}>
                 &#43;
               </span>
@@ -59,7 +59,7 @@ const CartProduct = ({
           )}
           {isProfileOrder && (
             <span className="cart-product__total-qty">
-              Total: <p>{cartProduct.qty}</p>
+              Total: <p>{qty}</p>
             </span>
           )}
         </div>
