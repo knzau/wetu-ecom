@@ -34,7 +34,7 @@ const useHandleProductFilters = () => {
           ? { [filterType]: filter[filterType].filter((value) => value !== filterValue) }
           : filter
       );
-      return updatedFilters.filter((filter) => filter[filterType].length > 0);
+      return (updatedFilters || []).filter((filter) => filter[filterType]?.length > 0 ?? false);
     });
   };
 
