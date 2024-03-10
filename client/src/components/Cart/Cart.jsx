@@ -4,9 +4,8 @@ import { makeRequest } from '../../makeRequests';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import CustomButton from '../common/Button/CustomButton';
 import { useUser, useClerk } from '@clerk/clerk-react';
-
-import './Cart.scss';
 import CartProduct from './CartProduct';
+import './Cart.scss';
 
 const Cart = () => {
   const { cartProducts, totalPrice, showCart } = useStoreState((state) => state.cartModel);
