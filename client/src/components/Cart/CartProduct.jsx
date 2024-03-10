@@ -59,7 +59,7 @@ const CartProduct = ({
           )}
           {isProfileOrder && (
             <span className="cart-product__total-qty">
-              Total: <p>{qty}</p>
+              <span> Total:</span> <p>{qty}</p>
             </span>
           )}
         </div>

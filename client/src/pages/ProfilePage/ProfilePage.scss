@@ -1,8 +1,9 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
 
 .profile-banner {
   background-image: url('https://res.cloudinary.com/dwtaiai3t/image/upload/v1709597877/pexels-ksenia-chernaya-3965548_mcob0a.jpg');
-  padding: 30px 50px;
+  padding: 3rem 5rem;
   height: 100px;
   background-position: center;
   background-size: cover;
@@ -10,17 +11,21 @@
   align-items: center;
 
   h3 {
-    font-size: 30px;
+    font-size: 3rem;
     color: #fff;
     text-transform: uppercase;
     margin: 0 auto;
     background-color: rgba(18, 18, 18, 0.5);
     padding: 5px 10px;
+
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+    }
   }
   button {
     background-color: rgba(18, 18, 18, 1);
     color: #fff;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 1px;
     cursor: pointer;
@@ -33,13 +38,16 @@
       background-color: rgba(18, 18, 18, 0.8);
       color: $color-grey-light-2;
     }
+    @include respond(tab-port) {
+      font-size: 1.4rem;
+    }
   }
 }
 
 .profile-tabs {
   display: flex;
   width: 100%;
-  gap: 40px;
+  gap: 4rem;
   flex-direction: column;
   align-items: center;
 
@@ -48,16 +56,20 @@
     gap: 20px;
     width: 50%;
     border-bottom: 1px solid #e0e0e0;
-    padding: 30px;
+    padding: 3rem;
     justify-content: center;
     align-items: center;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
 
     ul {
       width: 80%;
       display: flex;
       justify-content: space-between;
       text-transform: capitalize;
-      font-size: 14px;
+      font-size: 1.4rem;
       letter-spacing: 1px;
       color: $color-primary;
 
@@ -71,7 +83,7 @@
     }
   }
   & .active-tab {
-    color: $color-grey-dark-1;
+    color: $color-grey-dark-2;
     border-bottom: 2px solid $color-grey-dark-1;
     padding-bottom: 5px;
     width: max-content;
@@ -81,12 +93,19 @@
 .my-orders-container {
   width: 50%;
   border: 1px solid $color-grey-light-2;
-  padding: 30px;
+  padding: 3rem;
+  @include respond(tab-port) {
+    width: 80%;
+  }
 
   h3 {
-    font-size: 25px;
+    font-size: 2.5rem;
     text-transform: uppercase;
-    padding: 20px 0;
+
+    @include respond(tab-port) {
+      padding: 2rem 0;
+      width: auto;
+    }
   }
 
   .cart-product {
@@ -96,6 +115,11 @@
     padding: 16px 0;
     border-top: 1px solid $color-grey-light-2;
     align-items: center;
+    h3 {
+      @include respond(tab-port) {
+        font-size: 1.4rem;
+      }
+    }
 
     .cart-product__img-wrapper {
       width: 120px;
@@ -114,7 +138,7 @@
       flex-basis: 65%;
 
       h2 {
-        font-size: 20px;
+        font-size: 2rem;
         text-transform: capitalize;
       }
     }
@@ -123,10 +147,17 @@
       text-transform: capitalize;
       letter-spacing: 0.6px;
       font-size: 16px;
+      flex-direction: column;
     }
     .cart-product__total-qty {
       display: flex;
+      align-items: center;
       gap: 10px;
+      font-size: 1.8rem;
+
+      p {
+        font-size: 1.8rem;
+      }
     }
   }
 }
