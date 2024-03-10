@@ -1,9 +1,9 @@
 import React from 'react';
-import CustomButton from '../../components/Button/CustomButton';
-import PaymentMethods from '../../components/PaymentMethods/PaymentMethods';
-import Features from '../../components/Features/Features';
-import { getProductSize } from '../../utils';
+import CustomButton from '../../components/common/Button/CustomButton';
+import PaymentMethods from '../../components/Product/PaymentMethods/PaymentMethods';
+import Features from '../../components/home/Features/Features';
 import './ProductPage.scss';
+import { getProductSize } from '../../utils/helpers';
 
 const ProductDetails = ({
   handleSelectProductSize,

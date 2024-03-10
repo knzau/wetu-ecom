@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { fetchDataFromApi } from '../api/services';
+import { fetchDataFromApi } from '../utils/api';
 import { useEffect } from 'react';
 import { useStoreActions } from 'easy-peasy';
 

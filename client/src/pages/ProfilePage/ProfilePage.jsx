@@ -5,10 +5,9 @@ import AccountInfo from './AccountInfo';
 import MyOrders from './MyOrders';
 import WishList from './WishList';
 import ProfileTab from './ProfileTab';
-import Tabs from '../../components/TabsComponent/Tabs';
+import Tabs from '../../components/common/TabsComponent/Tabs';
 import useFetch from '../../hooks/useFetch';
-import { SIGN_IN_PATH, _10_mins } from '../../api/api';
-import { CUSTOMERS_URL } from '../../components/constant';
+import { SIGN_IN_PATH, _10_mins, CUSTOMERS_URL } from '../../utils/constants';
 import './ProfilePage.scss';
 
 const ProfilePage = () => {

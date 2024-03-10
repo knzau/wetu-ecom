@@ -2,8 +2,9 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { makeRequest } from '../../makeRequests';
 import { useStoreActions, useStoreState } from 'easy-peasy';
-import CustomButton from '../Button/CustomButton';
+import CustomButton from '../common/Button/CustomButton';
 import { useUser, useClerk } from '@clerk/clerk-react';
+
 import './Cart.scss';
 import CartProduct from './CartProduct';
 

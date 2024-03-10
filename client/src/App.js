@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider, Outlet, useNavigate } from 'react-router-dom';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { useStoreRehydrated } from 'easy-peasy';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/Navbar';
-import { appRoutes } from './api/api';
+
+import Footer from './components/common/Footer/Footer';
+import Navbar from './components/common/Navbar/Navbar';
+import { appRoutes } from './utils/constants';
 import './scss/main.scss';
 
 const PUBLISHABLE_KEY = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;

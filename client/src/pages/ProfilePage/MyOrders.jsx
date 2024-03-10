@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
-import CartProduct from '../../components/Cart/CartProduct';
+import LoaderCircle from '../../components/common/LoaderCircle/LoaderCircle';
+import CartProduct from '../../components/cart/CartProduct';
 import './ProfilePage.scss';
 
 const MyOrders = ({ customerData, isLoading }) => {

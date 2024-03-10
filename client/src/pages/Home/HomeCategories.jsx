@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Tabs from '../../components/TabsComponent/Tabs';
-import CustomButton from '../../components/Button/CustomButton';
-import ProductType from '../../components/ProductType/ProductType';
-import { productTypes } from './HomeUtils';
-import './../../components/TabsComponent/Tabs.scss';
+import CustomButton from '../../components/common/Button/CustomButton';
+import Tabs from '../../components/common/TabsComponent/Tabs';
+import ProductType from '../../components/Product/ProductType/ProductType';
+
+import { productTypes } from '../../utils/constants';
+import '../../components/common/TabsComponent/Tabs.scss';
 
 const HomeTabsCategories = ({ defaultTab, categoryData, categoryId }) => {
   const navigate = useNavigate();

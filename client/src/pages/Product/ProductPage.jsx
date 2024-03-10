@@ -6,9 +6,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import useFetch from '../../hooks/useFetch';
 import useHandleProductActions from '../../hooks/useHandleProductActions';
-import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
-import { mapProductData } from '../../utils';
-import { PRODUCT_ID_URL } from '../../components/constant';
+import LoaderCircle from '../../components/common/LoaderCircle/LoaderCircle';
+import { mapProductData } from '../../utils/helpers';
+import { PRODUCT_ID_URL } from '../../utils/constants';
 import ProductDetails from './ProductDetails';
 import './ProductPage.scss';
 

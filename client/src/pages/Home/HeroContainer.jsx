@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { HeroSlides } from './HeroSlides';
-import CustomButton from '../../components/Button/CustomButton';
-import Features from '../../components/Features/Features';
+import CustomButton from '../../components/common/Button/CustomButton';
+import Features from '../../components/home/Features/Features';
 import './Home.scss';
 
 const HeroContainer = ({ handleSetSlide, slideIndex, categoryData }) => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SignIn, useUser } from '@clerk/clerk-react';
-import { PROFILE_PATH, SIGN_IN_PATH } from '../../api/api';
+import { PROFILE_PATH, SIGN_IN_PATH } from '../../utils/constants';
 import './SignInSignOutPage.scss';
 
 const SignInSignOutPage = () => {

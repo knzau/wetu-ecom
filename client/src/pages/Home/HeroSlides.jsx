@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { getImageTranslation } from './HomeUtils';
 import { HeroBannerContent } from '../../mockData';
-import CustomButton from '../../components/Button/CustomButton';
+import CustomButton from '../../components/common/Button/CustomButton';
+import { getImageTranslation } from '../../utils/helpers';
 
 export const HeroSlides = ({ slideIndex, bannerWidth }) => {
   return HeroBannerContent.map((content) => (

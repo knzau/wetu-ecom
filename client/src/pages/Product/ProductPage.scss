@@ -1,4 +1,5 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
 
 .product-page {
   width: 100%;
@@ -66,6 +67,11 @@
   gap: 30px;
   padding: 1rem 5rem;
 
+  @include respond(tab-mini) {
+    flex-direction: column;
+    gap: 30px;
+  }
+
   .product__images-wrapper {
     display: flex;
     flex-basis: 50%;
@@ -129,8 +135,16 @@
       padding-right: 5px;
     }
   }
-  .product_color {
+  &.product_color {
     margin-bottom: 32px;
+    @include respond(phone) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin-bottom: 0;
+      gap: 2rem;
+    }
   }
 
   .product__details-item_img {
@@ -138,6 +152,10 @@
     height: 64px;
     border: 2px solid #fff;
     margin-bottom: 32px;
+
+    @include respond(phone) {
+      margin-bottom: 0;
+    }
 
     img {
       width: 100%;
@@ -197,14 +215,22 @@
   border-top: 2px solid #e6e6e6;
   border-bottom: 2px solid #e6e6e6;
   .product-page__price-item {
-    padding: 32px 0;
+    padding: 3.2rem 0;
     display: flex;
     align-items: center;
-    column-gap: 24px;
+    column-gap: 2.5rem;
+
+    @include respond(phone) {
+      justify-content: center;
+    }
 
     h2 {
       display: flex;
       align-items: center;
+
+      @include respond(phone) {
+        font-size: 2.4rem;
+      }
     }
 
     svg {
@@ -239,8 +265,9 @@
 }
 
 .product__reviews {
-  padding: 32px 0;
+  padding: 3.2rem 0;
   border-bottom: 2px solid #e6e6e6;
+  font-size: 1.6rem;
 
   .product__info-title {
     margin-bottom: 0 !important;
@@ -248,11 +275,11 @@
 }
 
 .product__features {
-  padding: 32px 0;
+  padding: 3.2rem 0;
 }
 
 .product__payment-methods {
-  padding-bottom: 32px;
+  padding-bottom: 3.2rem;
   border-bottom: 2px solid #e6e6e6;
   width: 100%;
 

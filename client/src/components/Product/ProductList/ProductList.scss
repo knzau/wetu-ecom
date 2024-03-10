@@ -1,0 +1,14 @@
+@import '../../../scss/abstracts/mixins';
+.product-list__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 315px));
+  gap: 3rem;
+  margin-top: 5rem;
+
+  @include respond(tab-mini) {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    justify-content: center;
+    width: 100%;
+  }
+}

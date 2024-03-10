@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { mapProductData } from '../../utils';
+import { mapProductData } from '../../utils/helpers';
 import './Product.scss';
 
 const Product = ({ product, productId }) => {

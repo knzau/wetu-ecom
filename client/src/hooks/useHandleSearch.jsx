@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { fetchDataFromApi, getQuery } from '../api/services';
-import { PRODUCTS_URL } from '../components/constant';
+import { PRODUCTS_URL } from '../utils/constants';
+import { fetchDataFromApi, getQuery } from '../utils/api';
 
 const useHandleSearch = () => {
   const [searchData, setSearchData] = useState([]);
