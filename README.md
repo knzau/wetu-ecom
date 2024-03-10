@@ -2,8 +2,6 @@
 
 This is a full-stack e-commerce application built with React, Strapi, and various other modern technologies. It provides a seamless shopping experience with features like secure checkout, user authentication, caching, responsiveness, and powerful search and filtering capabilities.
 
-![screencapture-wetu-frontend-onrender-2024-03-10-02_56_03](https://github.com/knzau/wetu-ecom/assets/57972610/2e76ab14-7876-4837-8aed-50046bd8b577)
-
 
 ## Features
 
@@ -23,6 +21,8 @@ This is a full-stack e-commerce application built with React, Strapi, and variou
 -   **Payments**: Stripe
 -   **Caching**: React Query
 -   **Deployment**: Render (Frontend), Render (Backend), DB (Render)
+
+  ![screencapture-wetu-frontend-onrender-2024-03-10-02_56_03](https://github.com/knzau/wetu-ecom/assets/57972610/2e76ab14-7876-4837-8aed-50046bd8b577)
 
 ## Getting Started
 
