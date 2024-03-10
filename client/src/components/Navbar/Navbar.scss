@@ -54,6 +54,11 @@
     @include respond(phone) {
       display: none;
     }
+
+    .burger-menu__link {
+      color: $color-primary;
+      font-size: 1.4rem;
+    }
   }
 
   .right {

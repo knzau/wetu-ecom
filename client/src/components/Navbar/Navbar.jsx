@@ -11,7 +11,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { SocialMediaIcons } from '../utils';
 import Cart from '../Cart/Cart';
-
 import { SIGN_IN_PATH } from '../../api/api';
 import { menuItems } from '../constant';
 import './Navbar.scss';
