@@ -1,0 +1,96 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+.burger-menu__container {
+  display: none;
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(1, 0, 0, 1);
+  margin-top: 3rem;
+
+  @include respond(tab-port) {
+    opacity: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: absolute;
+    background-color: white;
+    padding: 10rem 0rem;
+    z-index: 500;
+    overflow: hidden;
+    box-shadow: $shadow-dark;
+  }
+
+  .burger-menu__sub-categories {
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+
+    .sub-category__item {
+      width: 100%;
+      min-height: 32rem;
+      position: relative;
+      span {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $color-grey-dark-1;
+        background-color: #fff;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        z-index: 300;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .burger-menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 0;
+    font-weight: normal;
+    width: 85%;
+
+    .burger-menu__item {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $color-primary;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $color-grey-dark-1;
+      }
+    }
+
+    .burger-menu__link {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      svg {
+        width: 3.5rem;
+        height: 3.5rem;
+        fill: $color-primary;
+      }
+      span {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $color-primary;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-export const BASE_URL = process.env.REACT_APP_API_URL;
+import { ABOUT_PATH } from '../api/api';
 
 export const CATEGORIES_URL = '/categories?&';
 export const PRODUCTS_URL = '/products?&';
@@ -17,3 +17,22 @@ export const mapCategoryById = {
   men: 2,
   accessories: 3
 };
+
+export const menuItems = [
+  {
+    path: ABOUT_PATH,
+    label: 'About us'
+  },
+  {
+    path: WOMEN_CATEGORY,
+    label: 'Women'
+  },
+  {
+    path: MEN_CATEGORY,
+    label: 'Men'
+  },
+  {
+    path: ACCESSORIES_CATEGORY,
+    label: 'Accessories'
+  }
+];
