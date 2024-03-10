@@ -24,7 +24,6 @@
   .item {
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
     color: $color-primary;
     font-weight: normal;
 
@@ -61,10 +60,18 @@
   }
 
   .right {
-    .item {
+    display: flex;
+    align-items: center;
+    & .item {
       display: flex;
       gap: 15px;
       color: $color-primary;
+      align-items: center;
+
+      & svg {
+        width: 3rem;
+        height: 3rem;
+      }
     }
 
     @include respond(phone) {
