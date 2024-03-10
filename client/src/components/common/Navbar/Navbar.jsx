@@ -11,7 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import BurgerMenu from '../../common/BurgerMenu/BurgerMenu';
 import SocialMediaIcons from '../SocialMediaIcons/SocialMediaIcons';
 import { SIGN_IN_PATH, menuItems } from '../../../utils/constants';
-import Cart from '../../cart/Cart';
+import Cart from '../../Cart/Cart';
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -44,10 +44,16 @@ const Navbar = () => {
           <Link className="link" to="/">
             <MistoLogo />
           </Link>
-
-          <div className="item cart-icon phone-cart" onClick={toggleCartOpen}>
-            <LocalMallOutlinedIcon />
-            <span>{totalCartItems || 0}</span>
+          <div className="menu-icons__left">
+            <div className="item profile-nav__icon">
+              <Link className="link" to={SIGN_IN_PATH}>
+                <PersonOutlineOutlinedIcon />
+              </Link>
+            </div>
+            <div className="item cart-icon phone-cart" onClick={toggleCartOpen}>
+              <LocalMallOutlinedIcon />
+              <span>{totalCartItems || 0}</span>
+            </div>
           </div>
         </div>
         <div className="center">

@@ -29,7 +29,6 @@
     font-weight: normal;
 
     svg {
-      display: none;
       @include respond(tab-mini) {
         display: block;
       }
@@ -100,6 +99,18 @@
         height: 3rem;
       }
     }
+
+    .profile-nav__icon {
+      display: none;
+      @include respond(phone) {
+        display: flex;
+        gap: 1rem;
+        svg {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+    }
     .phone-cart {
       display: none;
       @include respond(phone) {
@@ -113,6 +124,13 @@
       }
     }
   }
+}
+
+.menu-icons__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .cart-icon {
@@ -137,6 +155,13 @@
 
     &:hover {
       opacity: 0.6;
+    }
+
+    @include respond(phone) {
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
     }
   }
 }
