@@ -14,7 +14,7 @@ import { SIGN_IN_PATH, menuItems } from '../../../utils/constants';
 import Cart from '../../Cart/Cart';
 import './Navbar.scss';
 
-const Navbar = () => {
+const Navbar = ({ handleClickSearch }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { toggleCartOpen } = useStoreActions((actions) => actions.cartModel);
   const { totalCartItems } = useStoreState((state) => state.cartModel);
@@ -68,7 +68,7 @@ const Navbar = () => {
         </div>
         <div className="right">
           <div className="item">
-            <SearchOutlinedIcon />
+            <SearchOutlinedIcon onClick={handleClickSearch} />
           </div>
 
           <div className="item">

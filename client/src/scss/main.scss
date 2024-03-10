@@ -42,6 +42,16 @@ ul {
     text-decoration: none;
     letter-spacing: 0.06em;
   }
+
+  .search-results__container {
+    width: 80%;
+    min-height: 100vh;
+    background-color: #fff;
+    margin: 0 auto;
+    z-index: 100;
+    padding: 2rem 0;
+    z-index: 1000;
+  }
 }
 
 body {
