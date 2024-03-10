@@ -1,8 +1,16 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
 
 .product-filters__wrapper {
   position: absolute;
-  z-index: 1000;
+  z-index: 470;
+  background-color: white;
+  padding: 2rem;
+
+  @include respond(tab-mini) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }
 .product-filters__container {
   display: flex;
@@ -38,6 +46,14 @@
 
 .product-filters__container {
   min-width: 200px;
+
+  @include respond(phone) {
+    min-width: auto;
+  }
+
+  @include respond(tab-mini) {
+    width: 100%;
+  }
 }
 
 .product-filter__item {

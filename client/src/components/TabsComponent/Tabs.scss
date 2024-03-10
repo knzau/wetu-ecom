@@ -1,4 +1,6 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+
 .category-tabs {
   display: flex;
   flex-direction: column;
@@ -8,6 +10,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 4rem 0rem;
+
+    @include respond(phone) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
     h3 {
       font-size: 22px;

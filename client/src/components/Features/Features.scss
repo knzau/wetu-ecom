@@ -1,15 +1,39 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
 
 .our-features {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
+
+  @include respond(phone) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include respond(tab-mini) {
+    gap: 3rem;
+    justify-content: center;
+  }
 
   .feature-item {
     display: flex;
     align-items: center;
-    column-gap: 13px;
-    font-size: 12px;
+
+    column-gap: 1.5rem;
+    font-size: 1.4rem;
+    min-width: 100px;
+
+    @include respond(tab-mini) {
+      gap: 10px;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+
     h4 {
       text-transform: uppercase;
       margin-bottom: 4px;
@@ -17,7 +41,7 @@
     }
 
     p {
-      font-size: 12px;
+      font-size: 1.4rem;
     }
 
     svg {
