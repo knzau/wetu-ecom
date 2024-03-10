@@ -25,7 +25,6 @@ const HomeTabsCategories = ({ defaultTab, categoryData, categoryId }) => {
             label={productType.label}
             key={productType.id}
             categoryId={categoryId}
-            categoryTitle={categoryData?.title}
           />
         ))}
       </Tabs>

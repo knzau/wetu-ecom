@@ -5,8 +5,9 @@ import ProductList from '../ProductList/ProductList';
 import { _10_mins } from '../../api/api';
 import { defaultProductFilters, getQuery } from '../../api/services';
 import { PRODUCTS_URL } from '../constant';
+import LoaderCircle from '../LoaderCircle/LoaderCircle';
 
-const ProductType = ({ productType, categoryId, categoryTitle }) => {
+const ProductType = ({ productType, categoryId }) => {
   const productTypeFilters = {
     categories: { id: categoryId },
     type: {
@@ -25,13 +26,7 @@ const ProductType = ({ productType, categoryId, categoryTitle }) => {
 
   return (
     <TabPane title={productType.label} productType={productType.label} key={productType.id}>
-      <div className="products_container">
-        {loading ? (
-          'loading'
-        ) : (
-          <ProductList productsData={data} categoryId={categoryId} categoryTitle={categoryTitle} />
-        )}
-      </div>
+      {loading ? <LoaderCircle /> : <ProductList productsData={data} />}
     </TabPane>
   );
 };

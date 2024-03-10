@@ -4,12 +4,12 @@ import ProductList from '../../components/ProductList/ProductList';
 import useFetch from '../../hooks/useFetch';
 import { _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
-import './ProductListByCategories.scss';
 import { defaultProductFilters, getQuery } from '../../api/services';
 import ProductFilters from '../../components/ProductFilters/ProductFilters';
 import useHandleProductFilters from '../../components/ProductFilters/useHandleProductFilters';
 import { PRODUCTS_URL, mapCategoryById } from '../../components/constant';
 import { formatSelectedFilters } from '../../utils';
+import './ProductListByCategories.scss';
 
 const ProductListByCategories = () => {
   const pageId = useParams();
@@ -40,11 +40,7 @@ const ProductListByCategories = () => {
           handleClickFilterItem={handleClickFilterItem}
           selectedFilters={selectedFilters}
         />
-        {isLoading ? (
-          <LoaderCircle />
-        ) : (
-          data && <ProductList categoryId={categoryId} productsData={data} />
-        )}
+        {isLoading ? <LoaderCircle /> : data && <ProductList productsData={data} />}
       </div>
     </div>
   );

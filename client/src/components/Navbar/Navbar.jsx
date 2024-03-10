@@ -1,72 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import MistoLogo from '../../assets/icons/MistoLogo';
+import MenuIcon from '@mui/icons-material/Menu';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { SocialMediaIcons } from '../utils';
 import Cart from '../Cart/Cart';
-import './Navbar.scss';
-import LoaderLine from '../LoaderLine/LoaderLine';
+
 import { SIGN_IN_PATH } from '../../api/api';
-import { ACCESSORIES_CATEGORY, MEN_CATEGORY, WOMEN_CATEGORY } from '../constant';
+import { menuItems } from '../constant';
+import './Navbar.scss';
 
 const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const { toggleCartOpen } = useStoreActions((actions) => actions.cartModel);
   const { totalCartItems } = useStoreState((state) => state.cartModel);
   const showCart = useStoreState((state) => state.cartModel.showCart);
-  const { isLoading } = useStoreState((state) => state.loadingModel);
+
+  const toggleNavigation = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+  const closeNavigation = () => {
+    setIsNavOpen(false);
+  };
 
   return (
     <div className="navbar__container">
       <div className="top-bar">
-        <div className="top-bar__right">
-          <div className="top-bar__item">
-            <PhoneIcon />
-            <span>+55 (111) 12 34 567890</span>
-          </div>
-          <div className="top-bar__item">
-            <LocationOnIcon />
-            <span>Florianopolis, Santa Catarina, Brazil</span>
-          </div>
-          <div className="top-bar__item">
-            <WatchLaterIcon />
-            <span>All week 24/7</span>
-          </div>
-        </div>
+        <div className="top-bar__right">Free worldwide shipping for orders over $100</div>
         <SocialMediaIcons className="top-bar__left" />
       </div>
+      {isNavOpen && <BurgerMenu closeNavigation={closeNavigation} />}
       <nav className="nav-bar__wrapper">
         <div className="left">
+          {isNavOpen ? (
+            <CloseIcon className="menu-icon" onClick={closeNavigation} />
+          ) : (
+            <MenuIcon className="menu-icon" onClick={toggleNavigation} />
+          )}
           <Link className="link" to="/">
             <MistoLogo />
           </Link>
+
+          <div className="item cart-icon phone-cart" onClick={toggleCartOpen}>
+            <LocalMallOutlinedIcon />
+            <span>{totalCartItems || 0}</span>
+          </div>
         </div>
         <div className="center">
-          <div className="item">
-            <Link className="link" to="/about-us">
-              About us
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to={WOMEN_CATEGORY}>
-              Women
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to={MEN_CATEGORY}>
-              Men
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to={ACCESSORIES_CATEGORY}>
-              Accessories
-            </Link>
-          </div>
+          {menuItems.map((item) => (
+            <li className="burger-menu__item item" key={item.path}>
+              <Link className="burger-menu__link" to={item.path}>
+                {isNavOpen && <ArrowRightIcon />}
+                <span>{item.label}</span>
+              </Link>
+            </li>
+          ))}
         </div>
         <div className="right">
           <div className="item">
@@ -84,7 +78,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {isLoading ? <LoaderLine /> : null}
+
       {showCart && <Cart />}
     </div>
   );

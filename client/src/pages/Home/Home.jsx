@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { getQuery } from '../../api/services';
 import useFetch from '../../hooks/useFetch';
 import { HeroBannerContent } from '../../mockData';
 import HomeTabsCategories from './HomeCategories';
 import HeroContainer from './HeroContainer';
+import { CATEGORIES_URL } from '../../components/constant';
 import { HOME_CATEGORIES, _10_mins } from '../../api/api';
 import LoaderCircle from '../../components/LoaderCircle/LoaderCircle';
-import { getQuery } from '../../api/services';
-import { CATEGORIES_URL } from '../../components/constant';
+
 import './Home.scss';
 
 const Home = () => {
