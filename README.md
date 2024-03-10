@@ -13,6 +13,7 @@ This is a full-stack e-commerce application built with React, Strapi, and variou
 -   **Product Search**: Powerful search functionality that allows users to quickly find the products they need.
 -   **Product Filtering**: Advanced filtering options that enable users to narrow down their search results based on various criteria such as price, category, brand, and more.
 -   **User Profile**: A dedicated profile page where users can view and manage their orders, update personal information, and more.
+-   **Optimized Images**: Integration with Cloudinary for optimized image delivery, ensuring fast load times and a better user experience.
 
 ## Technologies Used
 
