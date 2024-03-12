@@ -28,9 +28,6 @@ const Cart = () => {
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
   const handlePayment = async () => {
-    if (!user?.isSignedIn) {
-      clerk.redirectToSignIn();
-    }
     try {
       const stripe = await stripePromise;
       await makeRequest.post('/customers', {
@@ -42,7 +39,7 @@ const Cart = () => {
 
       const res = await makeRequest.post('/orders', {
         products: cartProducts,
-        userId: crypto.randomUUID()
+        userId: id
       });
 
       await stripe
@@ -57,6 +54,13 @@ const Cart = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleCheckout = async () => {
+    if (!user?.isSignedIn) {
+      clerk.redirectToSignIn().then((res) => console.log(res));
+    }
+    await handlePayment();
   };
 
   return cartProducts.length ? (
@@ -79,7 +83,7 @@ const Cart = () => {
           <span>subtotal</span>
           <span>$ {totalPrice}</span>
         </div>
-        <CustomButton className="primary-btn  checkout-btn" onClick={handlePayment}>
+        <CustomButton className="primary-btn  checkout-btn" onClick={handleCheckout}>
           Checkout
         </CustomButton>
       </div>
