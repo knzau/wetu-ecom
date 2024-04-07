@@ -1,7 +1,7 @@
 # E-Commerce App
 
 This is a full-stack e-commerce application built with React, Strapi, and various other modern technologies. It provides a seamless shopping experience with features like secure checkout, user authentication, caching, responsiveness, and powerful search and filtering capabilities.
-- **Live App**: https://wetu-frontend.onrender.com/ (initial load takes around 5 minutes);
+- **Live App**: https://wetu-frontend.onrender.com/ (initial load takes around 30 seconds, then refresh to load data);
 
 
 ## Features
