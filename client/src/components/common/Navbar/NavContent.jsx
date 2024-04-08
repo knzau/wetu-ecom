@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MistoLogo from '../../../assets/icons/MistoLogo';
+import Wetu from '../../../assets/icons/Wetu';
 import { SIGN_IN_PATH } from '../../../utils/constants';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -27,8 +28,8 @@ const NavContent = ({
         ) : (
           <MenuIcon className="menu-icon" onClick={toggleNavigation} />
         )}
-        <Link className="link" to="/">
-          <MistoLogo />
+        <Link className="link logo" to="/">
+          <Wetu />
         </Link>
         <div className="menu-icons__left">
           <div className="item profile-nav__icon">
@@ -38,7 +39,7 @@ const NavContent = ({
           </div>
           <div className="item cart-icon phone-cart" onClick={toggleCartOpen}>
             <LocalMallOutlinedIcon />
-            <span>{totalCartItems || 0}</span>
+            {totalCartItems > 0 && <span>{totalCartItems || 0}</span>}
           </div>
         </div>
       </div>
@@ -63,8 +64,8 @@ const NavContent = ({
           </Link>
         </div>
         <div className="item cart-icon" onClick={toggleCartOpen}>
-          <LocalMallOutlinedIcon />
-          <span>{totalCartItems || 0}</span>
+          <ShoppingBagOutlinedIcon />
+          {totalCartItems > 0 && <span>{totalCartItems}</span>}
         </div>
       </div>
     </nav>

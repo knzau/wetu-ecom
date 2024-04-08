@@ -10,15 +10,15 @@
   justify-content: space-between;
   align-items: center;
   height: 6.6rem;
-  padding: 4rem 5rem;
+  padding: 0rem 5rem;
   z-index: 1100;
 
   @include respond(phone) {
-    padding: 5rem 3rem 0 3rem !important;
+    padding: 3rem 2rem 0 2rem !important;
   }
 
   @include respond(tab-mini) {
-    padding: 4rem 7rem 0 7rem;
+    padding: 2rem 3rem 0 3rem;
   }
 
   .item {
@@ -55,7 +55,8 @@
 
     .burger-menu__link {
       color: $color-primary;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
+      font-weight: 600;
     }
   }
 
@@ -69,13 +70,18 @@
       align-items: center;
 
       & svg {
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
       }
     }
 
     @include respond(phone) {
       display: none;
+    }
+
+    .profile-nav__icon {
+      width: 3rem !important;
+      height: 3rem !important;
     }
   }
 
@@ -85,8 +91,6 @@
 
     @include respond(tab-mini) {
       svg {
-        width: 8rem;
-        height: 8rem;
         color: $color-primary;
         cursor: pointer;
       }
@@ -96,6 +100,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
     .menu-icon {
       display: none;
@@ -113,8 +118,8 @@
         display: flex;
         gap: 1rem;
         svg {
-          width: 4rem;
-          height: 4rem;
+          width: 3rem;
+          height: 3rem;
         }
       }
     }
@@ -125,8 +130,8 @@
         gap: 1rem;
 
         svg {
-          width: 3rem;
-          height: 3rem;
+          width: 2.5rem;
+          height: 2.5rem;
         }
       }
     }
@@ -142,8 +147,8 @@
 
 .cart-icon {
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   span {
     position: absolute;
     height: 16px;
@@ -174,9 +179,6 @@
 }
 
 .top-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: center;
   background-color: $color-primary;
