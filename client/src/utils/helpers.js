@@ -24,12 +24,6 @@ export const debounce = (func, delay) => {
   };
 };
 
-export const PRODUCT_FILTERS = {
-  ['color']: ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'],
-  ['material']: ['cotton', 'leather', 'denim', 'linen', 'acrylic', 'wool'],
-  ['type']: ['new arrivals', 'most viewed', 'best sellers', 'specials']
-};
-
 export const getToken = () => {
   return localStorage.getItem(AUTH_TOKEN);
 };

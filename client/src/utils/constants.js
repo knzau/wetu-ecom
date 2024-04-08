@@ -103,3 +103,8 @@ export const productTypes = [
   { id: 3, label: 'best sellers' },
   { id: 4, label: 'most viewed' }
 ];
+export const PRODUCT_FILTERS = {
+  ['color']: ['black', 'cyan', 'green', 'grey', 'pink', 'white', 'blue'],
+  ['material']: ['cotton', 'leather', 'denim', 'linen', 'acrylic', 'wool'],
+  ['type']: ['new arrivals', 'most viewed', 'best sellers', 'specials']
+};

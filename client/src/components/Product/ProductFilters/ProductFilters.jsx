@@ -3,7 +3,7 @@ import FilterItem from './FilterItem';
 import useToggle from '../../../hooks/useToggle';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { PRODUCT_FILTERS } from '../../../utils/helpers';
+import { PRODUCT_FILTERS } from '../../../utils/constants';
 import './ProductFilters.scss';
 
 const FilterItems = ({
